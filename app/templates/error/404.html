@@ -8,25 +8,25 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.png">
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="../static/css/normalize.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../static/css/main.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <!-- MeanMenu CSS -->
-    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <link rel="stylesheet" href="../static/css/meanmenu.min.css">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
     <!-- FlatIcon CSS -->
-    <link rel="stylesheet" href="font/flaticon.css">
+    <link rel="stylesheet" href="../static/css/font/flaticon.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <!-- Modernize js -->
-    <script src="js/modernizr-3.7.1.min.js"></script>
+    <script src="../static/js/modernizr-3.7.1.min.js"></script>
 </head>
 
 <body class="sticky-header">
@@ -78,8 +78,8 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-area">
-                                <a href="index.html" class="temp-logo">
-                                    <img src="img/logo-dark.png" alt="logo" class="img-fluid">
+                                <a href="{{url_for('main.index')}}" class="temp-logo">
+                                    <img src="../static/images/logo-dark.png" alt="logo" class="img-fluid">
                                 </a>
                             </div>
                         </div>
@@ -87,12 +87,12 @@
                             <nav id="dropdown" class="template-main-menu">
                                 <ul>
                                    <li>
-                                        <a href="#">Home</a>
+                                        <a href="{{url_for('main.index')}}">Home</a>
                                         <ul class="dropdown-menu-col-1">
-                                            <li>
-                                                <a href="index.html">Home Page 1</a>
-                                            </li>
-                                            <li>
+                                            <!-- <li>
+                                                <a href="{{url_for('main.index')}}">Home Page 1</a>
+                                            </li> -->
+                                            <!-- <li>
                                                 <a href="index2.html">Home Page 2</a>
                                             </li>
                                             <li>
@@ -100,18 +100,18 @@
                                             </li>
                                             <li>
                                                 <a href="index4.html">Home Page 4</a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#">About</a>
                                         <ul class="dropdown-menu-col-1">
-                                            <li>
+                                            <!-- <li>
                                                 <a href="about1.html">About 1</a>
                                             </li>
                                             <li>
                                                 <a href="about2.html">About 2</a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </li>
                                     <li>
@@ -269,7 +269,7 @@
         </header>
         <!-- Header Area End Here -->
         <!-- Inne Page Banner Area Start Here -->
-        <section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+        <section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -277,7 +277,7 @@
                             <h1>Error Page</h1>
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="{{url_for('main.index')}}">Home</a>
                                 </li>
                                 <li>404</li>
                             </ul>
@@ -291,14 +291,14 @@
         <section class="section-padding-12 bg-dark-lg">
             <div class="container">
                 <div class="col-lg-12">
-                    <div class="error-box-layout1" data-bg-image="img/figure/404-bg.png" >
+                    <div class="error-box-layout1" data-bg-image="../static/images/404-bg.png" >
                         <div class="error-logo">
-                            <img src="img/figure/404.png" alt="404">
+                            <img src="../static/images/404.png" alt="404">
                         </div>
                         <h2 class="item-title">Sorry! Page Was Not Found</h2>
                         <p>The page you are looking is not available or has been removed.
                             Try going to Home Page by using the button below.</p>
-                        <a href="#" class="item-btn">GO HOME PAGE</a>
+                        <a href="{{url_for('main.index')}}" class="item-btn">GO HOME PAGE</a>
                     </div>
                 </div>
             </div>
@@ -433,17 +433,17 @@
         <!-- Footer Area End Here -->
     </div>
     <!-- jquery-->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="../static/js/plugins.js"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
     <!-- MeanMenu js -->
-    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="../static/js/jquery.meanmenu.min.js"></script>
     <!-- Main js -->
-    <script src="js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 
 </body>
 

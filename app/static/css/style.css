@@ -1566,7 +1566,7 @@ h6 {
   left: 0;
 }
 #preloader {
-  background: #0d0121 url('../static/images/preloader.gif') no-repeat scroll center center;
+  background: #0d0121 url('../../static/images/preloader.gif') no-repeat scroll center center;
   height: 100%;
   left: 0;
   overflow: visible;
@@ -3187,7 +3187,7 @@ div#wrapper.open > .offcanvas-mask {
   }
 }
 .heading-layout1:after {
-  content: url('img/figure/figure3.png');
+  content: url('../../static/images/figure3.png');
   position: absolute;
   top: -50px;
   left: 0;
@@ -3251,7 +3251,7 @@ div#wrapper.open > .offcanvas-mask {
   }
 }
 .heading-layout3:after {
-  content: url('img/figure/figure8.png');
+  content: url('../../static/images/figure8.png');
   position: absolute;
   top: -50px;
   left: 0;
@@ -4188,7 +4188,7 @@ div#wrapper.open > .offcanvas-mask {
   margin-bottom: 5px;
 }
 .about-box-layout6 .item-img:after {
-  content: url('img/figure/about-shape.png');
+  content: url('../../static/images/about-shape.png');
   position: absolute;
   bottom: -8rem;
   left: -8rem;
@@ -4446,7 +4446,7 @@ div#wrapper.open > .offcanvas-mask {
   }
 }
 .banner-box-layout3:after {
-  content: url('img/figure/figure10.png');
+  content: url('../../static/images/figure10.png');
   position: absolute;
   bottom: 0;
   left: -4rem;
@@ -5656,13 +5656,13 @@ div#wrapper.open > .offcanvas-mask {
   margin-bottom: 3rem;
 }
 .pricing-box-layout1:before {
-  content: url('img/figure/bubble3.png');
+  content: url('../../static/images/bubble3.png');
   position: absolute;
   top: 0;
   left: 0;
 }
 .pricing-box-layout1:after {
-  content: url('img/figure/bubble4.png');
+  content: url('../../static/images/bubble4.png');
   position: absolute;
   top: 0;
   right: 0;
@@ -5819,7 +5819,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .process-box-layout1:after {
-  content: url('img/figure/teer.png');
+  content: url('../../static/images/teer.png');
   position: absolute;
   top: 10rem;
   right: -50px;
@@ -5863,7 +5863,7 @@ div#wrapper.open > .offcanvas-mask {
 /*------------------- 5.12 Progress -------------------*/
 .progress-wrap-layout1 {
   background-color: #f4efeb;
-  background-image: url('img/figure/banne-img1.png');
+  background-image: url('../../static/images/banne-img1.png');
   background-position: top right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -5875,13 +5875,13 @@ div#wrapper.open > .offcanvas-mask {
 }
 .progress-wrap-layout2 {
   background-color: #eff4f6;
-  background-image: url('img/figure/figure7.png');
+  background-image: url('../../static/images/figure7.png');
   background-position: top right;
   background-repeat: no-repeat;
 }
 .progress-wrap-layout3 {
   background-color: #f3f3f3;
-  background-image: url('img/figure/figure13.png');
+  background-image: url('../../static/images/figure13.png');
   background-position: top right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -6193,7 +6193,7 @@ div#wrapper.open > .offcanvas-mask {
   z-index: 2;
 }
 .service-box-layout1 .item-middle-content .item-icon .home-icon:after {
-  content: url('img/figure/dot-bubble.png');
+  content: url('../../static/images/dot-bubble.png');
   position: absolute;
   top: -15px;
   right: 18px;
@@ -6312,7 +6312,7 @@ div#wrapper.open > .offcanvas-mask {
   transition: all 0.3s ease-out;
 }
 .service-box-layout2 .item-content .item-icon .icon-bg:after {
-  content: url('img/figure/dot-bubble.png');
+  content: url('../../static/images/dot-bubble.png');
   position: absolute;
   top: -12px;
   right: 20px;
@@ -6401,7 +6401,7 @@ div#wrapper.open > .offcanvas-mask {
   }
 }
 .service-box-layout3:after {
-  content: url('img/figure/figure11.png');
+  content: url('../../static/images/figure11.png');
   position: absolute;
   top: 0;
   right: 0;
@@ -6474,7 +6474,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .service-box-layout4 .item-icon:after {
-  content: url('img/figure/dot-bubble.png');
+  content: url('../../static/images/dot-bubble.png');
   position: absolute;
   top: -20px;
   right: 20px;
@@ -7342,7 +7342,7 @@ div#wrapper.open > .offcanvas-mask {
   z-index: -1;
 }
 .team-box-layout1 .item-img:after {
-  content: url('img/figure/bubble.png');
+  content: url('../../static/images/bubble.png');
   position: absolute;
   top: 0;
   left: -20px;
@@ -7428,7 +7428,7 @@ div#wrapper.open > .offcanvas-mask {
   transition: all 0.3s ease-out;
 }
 .team-box-layout2 .item-img:after {
-  content: url('img/figure/bubble8.png');
+  content: url('../../static/images/bubble8.png');
   position: absolute;
   top: 0;
   left: 0;
@@ -7475,7 +7475,7 @@ div#wrapper.open > .offcanvas-mask {
   z-index: 1;
 }
 .team-box-layout3 .item-img:after {
-  content: url('img/figure/bubble9.png');
+  content: url('../../static/images/bubble9.png');
   position: absolute;
   top: 0;
   left: 0;
@@ -7495,7 +7495,7 @@ div#wrapper.open > .offcanvas-mask {
   transition: all 0.3s ease-out;
 }
 .team-box-layout3 .item-content:after {
-  content: url('img/figure/section-bubble5.png');
+  content: url('../../static/images/section-bubble5.png');
   position: absolute;
   top: -54px;
   left: 0;
@@ -7617,7 +7617,7 @@ div#wrapper.open > .offcanvas-mask {
   border-radius: 50%;
 }
 .team-box-layout4 .item-img:after {
-  content: url('img/figure/bubble9.png');
+  content: url('../../static/images/bubble9.png');
   position: absolute;
   top: 0;
   left: 0;
@@ -7694,7 +7694,7 @@ div#wrapper.open > .offcanvas-mask {
   }
 }
 .single-team-layout1 .item-img:after {
-  content: url('img/figure/bubble8.png');
+  content: url('../../static/images/bubble8.png');
   position: absolute;
   top: 0;
   left: 0;
@@ -7788,7 +7788,7 @@ div#wrapper.open > .offcanvas-mask {
 .testimonial-wrap-layout1 {
   padding: 18rem 0 20rem;
   background-color: #f0eaeb;
-  background-image: url('img/figure/figure6.png');
+  background-image: url('../../static/images/figure6.png');
   background-repeat: no-repeat;
   background-position-x: right;
 }
@@ -8101,7 +8101,7 @@ div#wrapper.open > .offcanvas-mask {
   display: inline-block;
 }
 .why-choose-box-layout4 .single-content .item-icon:after {
-  content: url('img/figure/bubble10.png');
+  content: url('../../static/images/bubble10.png');
   position: absolute;
   top: -38px;
   right: -30px;
@@ -8195,7 +8195,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-bubble:after {
-  content: url('img/figure/section-bubble.png');
+  content: url('../../static/images/section-bubble.png');
   position: absolute;
   top: -12px;
   left: 0;
@@ -8207,7 +8207,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-bubble-2:after {
-  content: url('img/figure/section-bubble2.png');
+  content: url('../../static/images/section-bubble2.png');
   position: absolute;
   top: -12px;
   left: 0;
@@ -8219,7 +8219,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-bubble-3:after {
-  content: url('img/figure/section-bubble3.png');
+  content: url('../../static/images/section-bubble3.png');
   position: absolute;
   top: -330px;
   left: 0;
@@ -8231,7 +8231,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-bubble-4:after {
-  content: url('img/figure/section-bubble4.png');
+  content: url('../../static/images/section-bubble4.png');
   position: absolute;
   top: -330px;
   left: 0;
@@ -8243,7 +8243,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-bubble-5:after {
-  content: url('img/figure/section-bubble6.png');
+  content: url('../../static/images/section-bubble6.png');
   position: absolute;
   top: -180px;
   left: 0;
@@ -8262,14 +8262,14 @@ div#wrapper.open > .offcanvas-mask {
   z-index: 2;
 }
 .section-shape1:before {
-  content: url('img/figure/figure1.png');
+  content: url('../../static/images/figure1.png');
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 .section-shape1:after {
-  content: url('img/figure/figure2.png');
+  content: url('../../static/images/figure2.png');
   position: absolute;
   bottom: 0;
   right: 0;
@@ -8282,14 +8282,14 @@ div#wrapper.open > .offcanvas-mask {
   z-index: 2;
 }
 .section-shape2:before {
-  content: url('img/figure/bubble1.png');
+  content: url('../../static/images/bubble1.png');
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 .section-shape2:after {
-  content: url('img/figure/bubble2.png');
+  content: url('../../static/images/bubble2.png');
   position: absolute;
   bottom: 10rem;
   right: 0;
@@ -8302,7 +8302,7 @@ div#wrapper.open > .offcanvas-mask {
   z-index: 2;
 }
 .section-shape3:before {
-  content: url('img/figure/bubble6.png');
+  content: url('../../static/images/bubble6.png');
   opacity: 0.30;
   position: absolute;
   top: 0;
@@ -8310,7 +8310,7 @@ div#wrapper.open > .offcanvas-mask {
   z-index: -1;
 }
 .section-shape3:after {
-  content: url('img/figure/bubble7.png');
+  content: url('../../static/images/bubble7.png');
   opacity: 0.30;
   position: absolute;
   bottom: 0;
@@ -8322,7 +8322,7 @@ div#wrapper.open > .offcanvas-mask {
   position: relative;
 }
 .section-shape4:after {
-  content: url('img/figure/figure12.png');
+  content: url('../../static/images/figure12.png');
   position: absolute;
   bottom: 40px;
   left: 0;

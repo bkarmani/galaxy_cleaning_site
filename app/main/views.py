@@ -11,22 +11,49 @@ def index():
 
 @main.route('/about')
 def about_page():
-    return render_template('about.html')
+    return render_template('about1.html')
 
 
 @main.route('/services')
 def services_page():
-    return render_template('services.html')
+    return render_template('service1.html')
 
 
-@main.route('/services/details')
-def services_details():
-    return render_template('service-details.html')
+@main.route('/services/details/<string:service>')
+def services_details1(service):
+    return render_template('single-service1.html', service=service)
 
+@main.route('/services/details/<string:service>')
+def services_details2(service):
+    return render_template('single-service2.html', service=service)
+
+@main.route('/services/details/<string:service>')
+def services_details3(service):
+    return render_template('single-service3.html', service=service)
+
+@main.route('/team/members')
+def teams_page():
+    return render_template('team1.html')
+
+@main.route('/team/members/<int:num>')
+def team1(num):
+    return render_template('single-team1.html', num=num)
+
+@main.route('/team/members/<int:num>')
+def team2(num):
+    return render_template('single-team2.html', num=num)
+
+@main.route('/team/members/<int:num>')
+def team3(num):
+    return render_template('single-team3.html', num=num)
 
 @main.route('/blog')
 def blog_page():
-    return render_template('blog.html')
+    return render_template('blog2.html')
+
+@main.route('/projects')
+def projects_page():
+    return render_template('project1.html')
 
 
 @main.route('/blog/detail')

@@ -1,10 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="">
 
+{% block head%}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>clenix | About 1</title>
+    {% block title %}
+    <title>clenix | Home 1</title>
+    {% endblock %}
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
@@ -23,11 +26,21 @@
     <link rel="stylesheet" href="../static/css/animate.min.css">
     <!-- FlatIcon CSS -->
     <link rel="stylesheet" href="../static/css/font/flaticon.css">
+    <!-- Nivo Slider CSS -->
+    <link rel="stylesheet" href="../static/css/nivo-slider.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="../static/css/select2.min.css">
+    <!-- Datetime Picker CSS -->
+    <link rel="stylesheet" href="../static/css/jquery.datetimepicker.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/style.css">
     <!-- Modernize js -->
-    <script src=".../static/js/modernizr-3.7.1.min.js"></script>
+    <script src="../static/js/modernizr-3.7.1.min.js"></script>
 </head>
+{% endblock %}
 
 <body class="sticky-header">
     <!--[if lte IE 9]>
@@ -44,7 +57,7 @@
     <div id="wrapper" class="wrapper">
         <!-- Add your site or application content here -->
         <!-- Header Area Start Here -->
-         <header class="header">
+        <header class="header">
             <div id="header-topbar" class="bg-Primary">
                 <div class="container">
                     <div class="row d-flex align-items-center">
@@ -115,10 +128,10 @@
                                         </ul> -->
                                     </li>
                                     <li>
-                                        <a href="#">Services</a>
-                                        <ul class="dropdown-menu-col-1">
+                                        <a href="{{url_for('main.services_page')}}">Services</a>
+                                        <!-- <ul class="dropdown-menu-col-1">
                                             <li>
-                                                <a href="service1.html">Services 1</a>
+                                                <a href="{{url_for('main.services_page')}}">Services 1</a>
                                             </li>
                                             <li>
                                                 <a href="service2.html">Services 2</a>
@@ -129,11 +142,11 @@
                                             <li>
                                                 <a href="single-service2.html">Single Services 2</a>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li>
-                                        <a href="#">Blog</a>
-                                        <ul class="dropdown-menu-col-1">
+                                        <a href="{{url_for('main.blog_page')}}">Blog</a>
+                                        <!-- <ul class="dropdown-menu-col-1">
                                             <li>
                                                 <a href="blog1.html">Blog 1</a>
                                             </li>
@@ -143,11 +156,11 @@
                                             <li>
                                                 <a href="single-blog1.html">Blog Details</a>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li class="position-static hide-on-mobile-menu">
-                                        <a href="#">Pages</a>
-                                        <div class="template-mega-menu">
+                                        <a href="{{url_for('main.projects_page')}}">Projects</a>
+                                        <!-- <div class="template-mega-menu">
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-3">
@@ -220,11 +233,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </li>
                                     <li class="hide-on-desktop-menu">
-                                        <a href="#">Pages</a>
-                                        <ul>
+                                        <a href="{{url_for('main.projects_page')}}">Projects</a>
+                                        <!-- <ul>
                                             <li>
                                                 <a href="about1.html">About</a>
                                             </li>
@@ -240,10 +253,10 @@
                                             <li>
                                                 <a href="contact.html">Contact</a>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{url_for('main.contact')}}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -268,281 +281,17 @@
             </div>
         </header>
         <!-- Header Area End Here -->
-        <!-- Inne Page Banner Area Start Here -->
-        <section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumbs-area">
-                            <h1>About Us</h1>
-                            <ul>
-                                <li>
-                                    <a href="index.html">Home</a>
-                                </li>
-                                <li>About</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Inne Page Banner Area End Here -->
-        <!-- About Us Area Start Here -->
-        <section class="section-padding-12-9">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="about-box-layout1">
-                            <div class="item-tag">Know About Us</div>
-                            <h2 class="item-title">Doing Business Since 1992 in Cleaning Service.</h2>
-                            <p>Chen an unknown printer took a galley of type and scrambled it to make a 
-                                type specimen book. It has survived not only five centuries, but also 
-                                the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            <p>Chen an unknown printer took a galley of type and scrambled it to make a 
-                                type specimen book. It has survived not only five centuries, but also the 
-                                leap into electronic typesetting, remaining essentially unchanged.Chen an 
-                                unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries.</p>
-                            <div class="list-item">
-                                <ul>
-                                    <li>
-                                        <h3>Customer Focused Reviews</h3>
-                                        <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                            eiusmod tempor incididunt ut labore et dolore.</p>
-                                    </li>
-                                    <li>
-                                        <h3>We Are Committed</h3>
-                                        <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                            eiusmod tempor incididunt ut labore et dolore.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="about-box-layout6">
-                            <div class="item-img">
-                                <img src="../static/images/about1.jpg" alt="thumb">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- About Us Area End Here -->
-        <!-- Why Choose Area End Here -->
-        <section class="section-padding-12-9 bg-Primary section-shape3">
-            <div class="container">
-                <div class="row gutters-3">
-                    <div class="col-lg-4">
-                        <div class="why-choose-box-layout2">
-                            <div class="item-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">Trusted Cleaners</h3>
-                                <p>Ahen an unknown printer took a galley of type and 
-                                    scrambled it to make a type specimen five centuries.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="why-choose-box-layout2">
-                            <div class="item-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">100% Satisfaction</h3>
-                                <p>Ahen an unknown printer took a galley of type and 
-                                    scrambled it to make a type specimen five centuries.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="why-choose-box-layout2">
-                            <div class="item-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">Cost Effective</h3>
-                                <p>Ahen an unknown printer took a galley of type and 
-                                    scrambled it to make a type specimen five centuries.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Why Choose Area End Here -->
-        <!-- Team Area Start Here -->
-        <section class="section-padding-lg-5">
-            <div class="container">
-                <div class="heading-layout1">
-                    <h2>Our Working Experts</h2>
-                    <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dol
-                        oremque laudantium, totam remeaque ipsa</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="team-box-layout1">
-                            <div class="item-img">
-                                <img src="../static/images/team1.png" alt="team-thumb">
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title"><a href="single-team.html">Richard Powel</a></h3>
-                                <div class="item-subtitle">Office Cleaner</div>
-                                <div class="item-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="team-box-layout1">
-                            <div class="item-img">
-                                <img src="../static/images/team2.png" alt="team-thumb">
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title"><a href="single-team.html">Merry Patel</a></h3>
-                                <div class="item-subtitle">Kitchen Cleaner</div>
-                                <div class="item-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12 d-block d-md-none d-lg-block">
-                        <div class="team-box-layout1">
-                            <div class="item-img">
-                                <img src="../static/images/team3.png" alt="team-thumb">
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title"><a href="single-team.html">Johnson Jack</a></h3>
-                                <div class="item-subtitle">Floor Cleaner</div>
-                                <div class="item-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Team Area End Here -->
-        <!-- Banner Area Start Here -->
-        <section class="banner-wrap-layout1" data-bg-image="../static/images/banner-bg.jpg">
-            <div class="container">
-                <div class="row d-flex justify-content-xl-end">
-                    <div class="col-xl-6 col-12">
-                        <div class="banner-box-layout1">
-                            <h2 class="item-title">Together <span>We'll Explore</span> New Things</h2>
-                            <a href="#" class="btn-fill-md bg-accent btn-slide-hover text-primarytext">Read More<i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Banner Area End Here -->
-        <!-- Process Area Start Here -->
-        <section class="section-padding-lg-2">
-            <div class="container">
-                <div class="heading-layout1">
-                    <h2>How It Works</h2>
-                    <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dol
-                        oremque laudantium, totam remeaque ipsa</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 single-process">
-                        <div class="process-box-layout1">
-                            <div class="item-bg">
-                                <img src="../static/images/bubble5.png" alt="thumb">
-                                <div class="item-icon">
-                                    <i class="far fa-calendar-check"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">Book Online</h3>
-                                <p>Ahen an unknown printer took a galley
-                                    of type and scrambled.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 single-process">
-                        <div class="process-box-layout1">
-                            <div class="item-bg">
-                                <img src="../static/images/bubble5.png" alt="thumb">
-                                <div class="item-icon">
-                                    <i class="far fa-envelope"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">Get Confirmation</h3>
-                                <p>Ahen an unknown printer took a galley
-                                    of type and scrambled.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 single-process">
-                        <div class="process-box-layout1">
-                            <div class="item-bg">
-                                <img src="../static/images/bubble5.png" alt="thumb">
-                                <div class="item-icon">
-                                    <i class="far fa-smile"></i>
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                <h3 class="item-title">Let’s Enjoy</h3>
-                                <p>Ahen an unknown printer took a galley
-                                    of type and scrambled.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Process Area End Here -->
-        <!-- Call To Action Area Start Here -->
-        <section class="action-wrap-layout1 bg-lightprimary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 col-12">
-                        <div class="action-box-layout1">
-                            <h2 class="item-title mb-0">Get started with your free estimate</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-12">
-                        <div class="action-box-layout1">
-                            <div class="item-img">
-                                <img src="../static/images/figure4.png" alt="img">
-                            </div>
-                            <a href="#" class="btn-fill-md btn-slide-hover bg-accent text-primarytext">Get an Estimate<i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Call To Action Area End Here -->
+
+        {% block content%}
+
+        {% endblock %}
+
         <!-- Footer Area Start Here -->
         <footer class="footer-wrap-layout1 section-shape1">
             <div class="container">
                 <div class="footer-top-box">
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6">
                             <div class="footer-box-layout1">
                                 <div class="footer-title">
                                     <h4>FEATURES</h4>
@@ -568,7 +317,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6">
                             <div class="footer-box-layout1">
                                 <div class="footer-title">
                                     <h4>COMPANY</h4>
@@ -576,7 +325,7 @@
                                 <div class="footer-menu-box">
                                     <ul class="footer-menu-list">
                                         <li>
-                                            <a href="about1.html">About Us</a>
+                                            <a href="{{url_for('main.about_page')}}">About Us</a>
                                         </li>
                                         <li>
                                             <a href="#">Testimonials</a>
@@ -594,7 +343,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6">
                             <div class="footer-box-layout1">
                                 <div class="footer-title">
                                     <h4>QUICK LINKS</h4>
@@ -617,30 +366,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6">
                             <div class="footer-box-layout1">
                                 <div class="footer-title">
-                                    <h4>SIGN UP!</h4>
+                                    <h4>AFFILIATES</h4>
                                 </div>
-                                <div class="footer-newsletter">
-                                    <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                    <div class="input-group stylish-input-group">
-                                        <input type="text" class="form-control" placeholder="E-mail Address">
-                                        <span class="input-group-addon">
-                                            <button type="submit">Submit</button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="footer-social">
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                <div class="footer-menu-box">
+                                    <ul class="footer-menu-list">
+                                        <li>
+                                            <a href="#">Become An Affiliate</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Affiliate Portal</a>
+                                        </li>
                                     </ul>
+                                    <a href="contact.html" class="contact-btn"><i class="far fa-envelope"></i>HAVE ANY QUESTION</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-middle-box">
+                    <div class="row">
+                        <div class="col-lg-5 col-12">
+                            <div class="footer-newsletter">
+                                <h3 class="item-title">Sign up for news and special offers</h3>
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" class="form-control" placeholder="Search Keywords ...">
+                                    <span class="input-group-addon">
+                                        <button type="submit">Submit</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-12">
+                            <div class="footer-social">
+                                <h4 class="item-title">Follow Us On :</h4>
+                                <ul class="social-icon">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -675,6 +444,21 @@
     <script src="../static/js/bootstrap.min.js"></script>
     <!-- MeanMenu js -->
     <script src="../static/js/jquery.meanmenu.min.js"></script> 
+    <!-- Nivo Slider js -->
+    <script src="../static/js/jquery.nivo.slider.js"></script> 
+    <script src="../static/js/home.js"></script> 
+    <!-- Owl Carousel js --> 
+    <script src="../static/js/owl.carousel.min.js"></script> 
+    <!-- CounterUp js -->
+    <script src="../static/js/jquery.counterup.min.js"></script> 
+    <!-- WayPoints js -->
+    <script src="../static/js/waypoints.min.js"></script> 
+    <!-- Validator js -->
+    <script src="../static/js/validator.min.js"></script>
+    <!-- Select 2 js -->
+    <script src="../static/js/select2.min.js"></script>
+    <!-- Datetime Picker js -->
+    <script src="../static/js/jquery.datetimepicker.full.min.js"></script>
     <!-- Main js -->
     <script src="../static/js/main.js"></script>
 
