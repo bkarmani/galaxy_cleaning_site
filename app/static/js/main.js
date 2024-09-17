@@ -203,7 +203,7 @@
                 mapTypeControlOptions: {
                     mapTypeIds: ['Styled']
                 },
-                center: new google.maps.LatLng(-37.81618, 144.95692),
+                center: new google.maps.LatLng(-2.11270,53.52558),
                 zoom: 10,
                 disableDefaultUI: true,
                 mapTypeId: 'Styled'
@@ -218,7 +218,7 @@
             var marker = new google.maps.Marker({
                 position: map.getCenter(),
                 animation: google.maps.Animation.BOUNCE,
-                icon: 'img/map-marker.png',
+                icon: '../static/images/map-marker.png',
                 map: map
             });
         };
