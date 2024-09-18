@@ -2,6 +2,11 @@ from . import main
 from flask import render_template
 
 
+@main.app_context_processor
+def inject_api():
+    return dict(google_maps_api_key="AIzaSyCUoE5ByYXVku3UhXqwf_XO_lY0-FnCjb4")
+
+
 @main.route('/index')
 @main.route('/')
 @main.route('/home')
@@ -19,17 +24,25 @@ def services_page():
     return render_template('service1.html')
 
 
-@main.route('/services/details/<string:service>')
-def services_details1(service):
-    return render_template('single-service1.html', service=service)
+# @main.route('/services/details/<string:service>')
+# def services_details1(service):
+#     return render_template('single-service1.html', service=service)
 
-@main.route('/services/details/<string:service>')
-def services_details2(service):
-    return render_template('single-service2.html', service=service)
+# @main.route('/services/details/<string:service>')
+# def services_details2(service):
+#     return render_template('single-service2.html', service=service)
 
-@main.route('/services/details/<string:service>')
-def services_details3(service):
-    return render_template('single-service3.html', service=service)
+# @main.route('/services/details/<string:service>')
+# def services_details3(service):
+#     return render_template('single-service3.html', service=service)
+
+@main.route('/services/details/residential-cleaning')
+def residential():
+    return render_template('residential.html')
+
+@main.route('/services/details/commercial-cleaning')
+def commercial():
+    return render_template('commercial.html')
 
 @main.route('/team/members')
 def teams_page():

@@ -203,7 +203,7 @@
                 mapTypeControlOptions: {
                     mapTypeIds: ['Styled']
                 },
-                center: new google.maps.LatLng(-2.11270,53.52558),
+                center: new google.maps.LatLng(53.52558, -2.11270),
                 zoom: 10,
                 disableDefaultUI: true,
                 mapTypeId: 'Styled'
