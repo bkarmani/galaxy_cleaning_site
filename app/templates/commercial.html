@@ -6,20 +6,20 @@ Our Services
 
 {% block content %}
         <!-- Inne Page Banner Area Start Here -->
-        <section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+        <section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs-area">
-                            <h1>Kitchen Cleaning Service</h1>
+                            <h1>Commercial Cleaning Service</h1>
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="{{url_for('main.index')}}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="service1.html">Services</a>
+                                    <a href="{{url_for('main.services_page')}}">Services</a>
                                 </li>
-                                <li>Kitchen Cleaning</li>
+                                <li>Commercial Cleaning</li>
                             </ul>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ Our Services
                 <div class="row">
                     <div class="col-lg-8 order-lg-2">
                         <div class="single-service-box-layout1">
-                            <h2 class="service-title">Kitchen Cleaning Service </h2>
+                            <h2 class="service-title">Commercial Cleaning Service </h2>
                             <p>Ahen an unknown printer took a galley of type and scrambled 
                                 it to make a type specimen book areIt hasear survived not 
                                 only five centuries, but also the leap into electronic 
@@ -42,7 +42,7 @@ Our Services
                                 printer took a galley of type and scrambled it to make a 
                                 type specimen book.</p>
                             <div class="main-img">
-                                <img src="img/service/service11.jpg" alt="Kitchen Cleaning">
+                                <img src="../static/images/service11.jpg" alt="Commercial Cleaning">
                             </div>
                             <div class="service-content">
                                 <p>Ahen an unknown printer took a galley of type and 
@@ -92,7 +92,7 @@ Our Services
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="item-img">
-                                                <img src="img/service/service10.jpg" alt="thumb">
+                                                <img src="../static/images/service10.jpg" alt="thumb">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -278,7 +278,7 @@ Our Services
                         </div>
                         <div class="widget widget-banner">
                             <div class="item-img">
-                                <img src="img/figure/widget-banner.png" alt="banner">
+                                <img src="../static/images/widget-banner.png" alt="banner">
                             </div>
                             <div class="item-content">
                                 <h2 class="item-title"><span>30</span>% Discount</h2>

@@ -2,9 +2,9 @@ from . import main
 from flask import render_template
 
 
-@main.app_context_processor
-def inject_api():
-    return dict(google_maps_api_key="AIzaSyCUoE5ByYXVku3UhXqwf_XO_lY0-FnCjb4")
+# @main.app_context_processor
+# def inject_api():
+#     return dict(google_maps_api_key="AIzaSyCUoE5ByYXVku3UhXqwf_XO_lY0-FnCjb4")
 
 
 @main.route('/index')
@@ -18,31 +18,51 @@ def index():
 def about_page():
     return render_template('about1.html')
 
-
+# list all services in a page
 @main.route('/services')
 def services_page():
     return render_template('service1.html')
 
+# --- list of services offered starts here ---
 
-# @main.route('/services/details/<string:service>')
-# def services_details1(service):
-#     return render_template('single-service1.html', service=service)
+# residential cleaning service
 
-# @main.route('/services/details/<string:service>')
-# def services_details2(service):
-#     return render_template('single-service2.html', service=service)
-
-# @main.route('/services/details/<string:service>')
-# def services_details3(service):
-#     return render_template('single-service3.html', service=service)
-
-@main.route('/services/details/residential-cleaning')
+@main.route('/service/residential-cleaning')
 def residential():
     return render_template('residential.html')
 
-@main.route('/services/details/commercial-cleaning')
+# commercial cleaning service
+@main.route('/service/commercial-cleaning')
 def commercial():
     return render_template('commercial.html')
+
+# car wash cleaning service
+@main.route('/service/car-wash')
+def car_wash():
+    return render_template('car-wash.html')
+
+# custom cleaning service tailored to your request/needs
+@main.route('/service/custom-cleaning')
+def custom_clean():
+    return render_template('custom-clean.html')
+
+# green cleaning service
+@main.route('/service/green-cleaning')
+def green_clean():
+    return render_template('green-clean.html')
+
+# sanitized cleaning services 
+@main.route('/service/sanitization-cleaning')
+def sanitize():
+    return render_template('sanitization.html')
+
+@main.route('/service/specialized-cleaning')
+def specialized():
+    return render_template('specialized.html')
+
+# -- end of all services --
+
+
 
 @main.route('/team/members')
 def teams_page():
