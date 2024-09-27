@@ -6,20 +6,20 @@ Our Services
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumbs-area">
-                    <h1>Kitchen Cleaning Service</h1>
+                    <h1>Specialized Cleaning Services</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
                         <li>
-                            <a href="service1.html">Services</a>
+                            <a href="{{url_for('main.services_page')}}">Services</a>
                         </li>
-                        <li>Kitchen Cleaning</li>
+                        <li>Specialized Cleaning</li>
                     </ul>
                 </div>
             </div>
@@ -33,25 +33,24 @@ Our Services
         <div class="row">
             <div class="col-lg-8 order-lg-2">
                 <div class="single-service-box-layout1">
-                    <h2 class="service-title">Kitchen Cleaning Service </h2>
-                    <p>Ahen an unknown printer took a galley of type and scrambled 
-                        it to make a type specimen book areIt hasear survived not 
-                        only five centuries, but also the leap into electronic 
-                        typesetting, remaining essentiall yellow aw unchangedh 
-                        the release of Letraset sheets containing.Ahen an unknown 
-                        printer took a galley of type and scrambled it to make a 
-                        type specimen book.</p>
+                    <h2 class="service-title">Specialized Cleaning Services </h2>
+                    <p>At Galaxy Cleaning Services, we offer a range of specialized cleaning services tailored to 
+                        meet the specific needs of your space. From carpet and upholstery cleaning to window 
+                        washing, tile and grout cleaning, and expert floor care, we ensure that every 
+                        surface is spotless and well-maintained. Our pressure washing services tackle 
+                        \exteriors, sidewalks, and driveways, leaving your property looking fresh and 
+                        revitalized.</p>
                     <div class="main-img">
-                        <img src="img/service/service11.jpg" alt="Kitchen Cleaning">
+                        <img src="../static/images/service11.jpg" alt="Custom Cleaning">
                     </div>
                     <div class="service-content">
-                        <p>Ahen an unknown printer took a galley of type and 
-                            scrambled it to make a type specimen book areIt 
-                            hasear survived not only five centuries, but also 
-                            the leap into electronic typesetting, remaining essentiall 
-                            yellow aw unchangedh the release of Letraset sheets 
-                            containing and more recently with desktop.Ahen an unknown 
-                            printer took a galley of type and scrambled it to make a type.</p>
+                        <!-- <p>At Galaxy Cleaning Services, we offer custom cleaning services tailored to 
+                            meet the unique needs of your business. Whether you require daily upkeep, 
+                            deep cleaning, or specialized services, our expert team works closely with 
+                            you to create a cleaning plan that fits your schedule and requirements. 
+                            With a focus on quality, flexibility, and attention to detail, 
+                            we ensure your space stays pristine, promoting a healthier and more 
+                            professional environment.</p> -->
                         <div class="why-choose">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -60,10 +59,9 @@ Our Services
                                             <i class="far fa-check-circle"></i>
                                         </div>
                                         <div class="media-body space-md">
-                                            <h3 class="item-title">Quality We Ensure</h3>
-                                            <p>Aorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit sed doeiusmod tempor 
-                                                incididunt ut labore et dolore.</p>
+                                            <h3 class="item-title">Guaranteed Results</h3>
+                                            <p>We stand by the quality of our services and offer satisfaction guarantees, 
+                                                ensuring that every cleaning meets your expectations or we’ll make it right.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -73,112 +71,130 @@ Our Services
                                             <i class="far fa-check-circle"></i>
                                         </div>
                                         <div class="media-body space-md">
-                                            <h3 class="item-title">Experienced Workers</h3>
-                                            <p>Aorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit sed doeiusmod tempor 
-                                                incididunt ut labore et dolore.</p>
+                                            <h3 class="item-title">Cost-Effective Solutions</h3>
+                                            <p>We provide cost-effective cleaning solutions that maximize results without exceeding your budget, 
+                                                offering high-quality services at competitive rates.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p>Ahen an unknown printer took a galley of type and scrambled it to 
+                        <!-- <p>Ahen an unknown printer took a galley of type and scrambled it to 
                             make a type specimen book areIt hasear survived not only five 
                             centuries, but also the leap into electronic typesetting, remaining 
                             essentiall yellow aw unchangedh the release o type.Ahen an unknown 
                             printer took a galley of type and scrambled it to make a type specimen 
-                            book areIt hasear survived not only five centuries.</p>
+                            book areIt hasear survived not only five centuries.</p> -->
                         <div class="service-more-content">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="item-img">
-                                        <img src="img/service/service10.jpg" alt="thumb">
+                                        <img src="../static/images/service10.jpg" alt="thumb">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="item-content">
-                                        <h3 class="item-title">Experienced People can help you more.</h3>
-                                        <p>Ahen an unknown printer took a galley of type andty 
-                                            scrambled it to make a type specimen book areIter 
-                                            hasear survived not only five centuries, but also 
-                                            the leap into electronic type.</p>
+                                        <h3 class="item-title">What makes us stand out</h3>
+                                        <p>Our specialized equipment allows us to clean hard-to-reach places like high windows, 
+                                            ceiling corners, and grout lines, ensuring every area is thoroughly cleaned, 
+                                            thereby promoting.</p>
                                         <ul class="item-feature">
-                                            <li>Gas Silendar Clean</li>
-                                            <li>Frozen Pipe Clean</li>
-                                            <li>Water Pipe Clean</li>
-                                            <li>Toilet Clean</li>
-                                            <li>Toilet Clean</li>
+                                            <li>Enhanced Aesthetic Appeal</li>
+                                            <li>Healthier Indoor Air Quality</li>
+                                            <li>Surface Longevity and Protection</li>
+                                            <li>Convenience and Flexibility</li>
+                                            <li>Peace of Mind</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="service-faq">
-                            <h3 class="item-title">Frequently Ask Questions</h3>
-                            <p>Ahen an unknown printer took a galley of type and scrambled 
-                                it to make a type specimen book areIt hasear survived not 
-                                only five centuries, but also the leap into electronic 
-                                typesetting, remaining essentiall yellow aw unchangedh 
-                                the release o type.Ahen an unknown printer took a galley 
-                                of type scram.</p>
+                            <h3 class="item-title">Frequently Asked Questions</h3>
+                            <p>At Galaxy Cleaning Services, we know you may have some questions about our 
+                                cleaning services. To make things easier for you, we've put together a list 
+                                of frequently asked questions. From our equipment and scheduling to customized 
+                                services, you'll find all the answers you're looking for right here!</p>
                             <div class="faq-box">
                                 <div id="accordion" class="accordion">
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h5 class="heading-title" data-toggle="collapse" data-target="#collapseOne" 
-                                                aria-expanded="true" aria-controls="collapseOne">Modern Equipment We Use</h5>
+                                                aria-expanded="true" aria-controls="collapseOne">What types of surfaces do you clean with your specialized services?</h5>
                                         </div>
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                We clean a wide variety of surfaces, including carpets, upholstery, 
+                                                windows (interior and exterior), tile and grout, hardwood, tile, 
+                                                vinyl floors, and exteriors like sidewalks and driveways.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseTwo" 
-                                            aria-expanded="false" aria-controls="collapseTwo">Qualified Workers</h5>
+                                            aria-expanded="false" aria-controls="collapseTwo">How often should I schedule specialized cleaning for my carpets and upholstery?</h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                For high-traffic areas, we recommend carpet and upholstery cleaning every 6 to 12 months. 
+                                                However, the frequency can vary depending on usage, pets, and exposure to stains or dirt.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingThree">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
-                                                aria-expanded="false" aria-controls="collapseThree">Modern Equipment We Use</h5>
+                                                aria-expanded="false" aria-controls="collapseThree">Can you remove tough stains from tile grout and upholstery?
+                                            </h5>
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                Absolutely! Our team specializes in removing tough stains from tile grout 
+                                                and upholstery using advanced techniques and products, leaving your surfaces looking like new.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingFour">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseFour" 
-                                                aria-expanded="false" aria-controls="collapseFour">Modern Equipment We Use</h5>
+                                                aria-expanded="false" aria-controls="collapseFour">Do I need to prepare anything before your team arrives?
+                                            </h5>
                                         </div>
                                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                It’s helpful to clear the areas to be cleaned of personal items, but our team will handle all the heavy lifting and moving of furniture, 
+                                                as needed, to ensure a thorough clean.
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
+                                                aria-expanded="false" aria-controls="collapseThree">Can I request green cleaning for specific areas only?
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Yes, we offer customizable green cleaning plans where you can choose 
+                                                specific areas or services to be cleaned using our eco-friendly products.
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
+                                                aria-expanded="false" aria-controls="collapseThree">What certifications or standards do your green cleaning services follow?
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Our services comply with industry-leading green cleaning standards and certifications, 
+                                                ensuring that our products and practices meet the highest levels of environmental and 
+                                                health safety.
+                                            </div>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -209,7 +225,7 @@ Our Services
                             </li>
                             <li>
                                 <div class="item-title">Contact</div>
-                                <div class="item-subtitle">+88 9504200</div>
+                                <div class="item-subtitle">+44 14 0022 2131</div>
                             </li>
                             <li>
                                 <div class="item-title">E-mail</div>
@@ -278,12 +294,12 @@ Our Services
                 </div>
                 <div class="widget widget-banner">
                     <div class="item-img">
-                        <img src="img/figure/widget-banner.png" alt="banner">
+                        <img src="../static/images/widget-banner.png" alt="banner">
                     </div>
                     <div class="item-content">
                         <h2 class="item-title"><span>30</span>% Discount</h2>
                         <div class="item-subtitle">Promotion Offer 16 Days</div>
-                        <a href="#" class="fw-btn-fill bg-accent text-primarytext">Contact With US</a>
+                        <a href="{{url_for('main.contact')}}" class="fw-btn-fill bg-accent text-primarytext">Contact US</a>
                     </div>
                 </div>
             </div>

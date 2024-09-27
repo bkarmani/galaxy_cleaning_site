@@ -6,20 +6,20 @@ Our Services
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumbs-area">
-                    <h1>Kitchen Cleaning Service</h1>
+                    <h1>Green Cleaning Service</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
                         <li>
-                            <a href="service1.html">Services</a>
+                            <a href="{{url_for('main.services_page')}}">Services</a>
                         </li>
-                        <li>Kitchen Cleaning</li>
+                        <li>Green Cleaning</li>
                     </ul>
                 </div>
             </div>
@@ -33,25 +33,25 @@ Our Services
         <div class="row">
             <div class="col-lg-8 order-lg-2">
                 <div class="single-service-box-layout1">
-                    <h2 class="service-title">Kitchen Cleaning Service </h2>
-                    <p>Ahen an unknown printer took a galley of type and scrambled 
-                        it to make a type specimen book areIt hasear survived not 
-                        only five centuries, but also the leap into electronic 
-                        typesetting, remaining essentiall yellow aw unchangedh 
-                        the release of Letraset sheets containing.Ahen an unknown 
-                        printer took a galley of type and scrambled it to make a 
-                        type specimen book.</p>
+                    <h2 class="service-title">Green Cleaning Service </h2>
+                    <p>At Galaxy cleaning services, we are committed to providing top-quality 
+                        cleaning services while prioritizing the health of our clients and the 
+                        planet. Our green cleaning solutions use eco-friendly, non-toxic products 
+                        that are safe for your home, office, and the environment. By reducing 
+                        harmful chemicals, we create cleaner spaces that promote well-being for 
+                        you and your loved ones, without compromising on cleanliness or 
+                        sustainability.</p>
                     <div class="main-img">
-                        <img src="img/service/service11.jpg" alt="Kitchen Cleaning">
+                        <img src="../static/images/service11.jpg" alt="Custom Cleaning">
                     </div>
                     <div class="service-content">
-                        <p>Ahen an unknown printer took a galley of type and 
-                            scrambled it to make a type specimen book areIt 
-                            hasear survived not only five centuries, but also 
-                            the leap into electronic typesetting, remaining essentiall 
-                            yellow aw unchangedh the release of Letraset sheets 
-                            containing and more recently with desktop.Ahen an unknown 
-                            printer took a galley of type and scrambled it to make a type.</p>
+                        <!-- <p>At Galaxy Cleaning Services, we offer custom cleaning services tailored to 
+                            meet the unique needs of your business. Whether you require daily upkeep, 
+                            deep cleaning, or specialized services, our expert team works closely with 
+                            you to create a cleaning plan that fits your schedule and requirements. 
+                            With a focus on quality, flexibility, and attention to detail, 
+                            we ensure your space stays pristine, promoting a healthier and more 
+                            professional environment.</p> -->
                         <div class="why-choose">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -60,10 +60,9 @@ Our Services
                                             <i class="far fa-check-circle"></i>
                                         </div>
                                         <div class="media-body space-md">
-                                            <h3 class="item-title">Quality We Ensure</h3>
-                                            <p>Aorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit sed doeiusmod tempor 
-                                                incididunt ut labore et dolore.</p>
+                                            <h3 class="item-title">Green Certifications</h3>
+                                            <p>As part of our commitment to sustainability, we hold green cleaning certifications 
+                                                that ensure our practices meet the highest environmental and health standards.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -73,112 +72,130 @@ Our Services
                                             <i class="far fa-check-circle"></i>
                                         </div>
                                         <div class="media-body space-md">
-                                            <h3 class="item-title">Experienced Workers</h3>
-                                            <p>Aorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit sed doeiusmod tempor 
-                                                incididunt ut labore et dolore.</p>
+                                            <h3 class="item-title">Commitment to Safety</h3>
+                                            <p>Our top priority is ensuring the safety of your family, pets, and employees. 
+                                                That’s why we use non-toxic, biodegradable solutions that are safe 
+                                                for all surfaces and spaces.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p>Ahen an unknown printer took a galley of type and scrambled it to 
+                        <!-- <p>Ahen an unknown printer took a galley of type and scrambled it to 
                             make a type specimen book areIt hasear survived not only five 
                             centuries, but also the leap into electronic typesetting, remaining 
                             essentiall yellow aw unchangedh the release o type.Ahen an unknown 
                             printer took a galley of type and scrambled it to make a type specimen 
-                            book areIt hasear survived not only five centuries.</p>
+                            book areIt hasear survived not only five centuries.</p> -->
                         <div class="service-more-content">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="item-img">
-                                        <img src="img/service/service10.jpg" alt="thumb">
+                                        <img src="../static/images/service10.jpg" alt="thumb">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="item-content">
-                                        <h3 class="item-title">Experienced People can help you more.</h3>
-                                        <p>Ahen an unknown printer took a galley of type andty 
-                                            scrambled it to make a type specimen book areIter 
-                                            hasear survived not only five centuries, but also 
-                                            the leap into electronic type.</p>
+                                        <h3 class="item-title">Health Benefits</h3>
+                                        <p>Green cleaning is not only good for the planet but also promotes the following:</p>
                                         <ul class="item-feature">
-                                            <li>Gas Silendar Clean</li>
-                                            <li>Frozen Pipe Clean</li>
-                                            <li>Water Pipe Clean</li>
-                                            <li>Toilet Clean</li>
-                                            <li>Toilet Clean</li>
+                                            <li>indoor air quality</li>
+                                            <li>Contribution to a Greener Economy</li>
+                                            <li>healthier space</li>
+                                            <li>Waste Reduction</li>
+                                            <li>Allergy and Sensitivity Reduction</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="service-faq">
-                            <h3 class="item-title">Frequently Ask Questions</h3>
-                            <p>Ahen an unknown printer took a galley of type and scrambled 
-                                it to make a type specimen book areIt hasear survived not 
-                                only five centuries, but also the leap into electronic 
-                                typesetting, remaining essentiall yellow aw unchangedh 
-                                the release o type.Ahen an unknown printer took a galley 
-                                of type scram.</p>
+                            <h3 class="item-title">Frequently Asked Questions</h3>
+                            <p>At Galaxy Cleaning Services, we know you may have some questions about our 
+                                cleaning services. To make things easier for you, we've put together a list 
+                                of frequently asked questions. From our equipment and scheduling to customized 
+                                services, you'll find all the answers you're looking for right here!</p>
                             <div class="faq-box">
                                 <div id="accordion" class="accordion">
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h5 class="heading-title" data-toggle="collapse" data-target="#collapseOne" 
-                                                aria-expanded="true" aria-controls="collapseOne">Modern Equipment We Use</h5>
+                                                aria-expanded="true" aria-controls="collapseOne">What is green cleaning, and how is it different from traditional cleaning?</h5>
                                         </div>
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                Green cleaning uses eco-friendly, non-toxic products and sustainable practices that 
+                                                are safe for the environment and your health. Traditional cleaning often 
+                                                involves harsh chemicals that can leave behind harmful residues.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseTwo" 
-                                            aria-expanded="false" aria-controls="collapseTwo">Qualified Workers</h5>
+                                            aria-expanded="false" aria-controls="collapseTwo">Are green cleaning products as effective as regular cleaning products?</h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                Yes, our green cleaning products are specially formulated to be just as 
+                                                effective as conventional products, without the harmful side effects. 
+                                                They thoroughly clean and disinfect, ensuring a spotless environment.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingThree">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
-                                                aria-expanded="false" aria-controls="collapseThree">Modern Equipment We Use</h5>
+                                                aria-expanded="false" aria-controls="collapseThree">Are green cleaning services safe for children and pets?
+                                            </h5>
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                Absolutely! Our green cleaning solutions are non-toxic and free from harmful chemicals, 
+                                                making them safe for children, pets, and anyone with allergies or sensitivities.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingFour">
                                             <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseFour" 
-                                                aria-expanded="false" aria-controls="collapseFour">Modern Equipment We Use</h5>
+                                                aria-expanded="false" aria-controls="collapseFour">Do green cleaning services cost more than traditional cleaning?</h5>
                                         </div>
                                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                                             <div class="card-body">
-                                                Ahen an unknown printer took a galley of type and scrambled it to make a 
-                                                type specimen book areIt hasear survived not only five centuries, but 
-                                                also the leap into electronic typesetting, remaining essentiall yellow 
-                                                aw unchangedh.
+                                                Green cleaning services may have a slightly higher cost due to the premium nature of 
+                                                eco-friendly products, but the long-term benefits to health, safety, and the environment
+                                                outweigh the minimal difference in price.
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
+                                                aria-expanded="false" aria-controls="collapseThree">Can I request green cleaning for specific areas only?
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Yes, we offer customizable green cleaning plans where you can choose 
+                                                specific areas or services to be cleaned using our eco-friendly products.
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="heading-title collapsed" data-toggle="collapse" data-target="#collapseThree" 
+                                                aria-expanded="false" aria-controls="collapseThree">What certifications or standards do your green cleaning services follow?
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Our services comply with industry-leading green cleaning standards and certifications, 
+                                                ensuring that our products and practices meet the highest levels of environmental and 
+                                                health safety.
+                                            </div>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -278,12 +295,12 @@ Our Services
                 </div>
                 <div class="widget widget-banner">
                     <div class="item-img">
-                        <img src="img/figure/widget-banner.png" alt="banner">
+                        <img src="../static/images/widget-banner.png" alt="banner">
                     </div>
                     <div class="item-content">
                         <h2 class="item-title"><span>30</span>% Discount</h2>
                         <div class="item-subtitle">Promotion Offer 16 Days</div>
-                        <a href="#" class="fw-btn-fill bg-accent text-primarytext">Contact With US</a>
+                        <a href="{{url_for('main.contact')}}" class="fw-btn-fill bg-accent text-primarytext">Contact US</a>
                     </div>
                 </div>
             </div>

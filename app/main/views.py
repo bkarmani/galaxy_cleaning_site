@@ -1,18 +1,44 @@
 from . import main
 from flask import render_template
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
+from app.models import Projects
+import os
+from app import db
 
 
 # @main.app_context_processor
 # def inject_api():
 #     return dict(google_maps_api_key="AIzaSyCUoE5ByYXVku3UhXqwf_XO_lY0-FnCjb4")
+# Global variable to track the total projects done
 
+
+
+# Function to increment the project count
+# def increment_projects_done():
+#     with app.app_context():
+#         old_record = Projects.query.first()
+#         if old_record:
+#             old_record.number_of_projects += 1
+#             db.session.commit()
+#     print(f"Total projects done: {old_record}")
+
+# # Initialize the scheduler outside the route so it's not initialized on every request
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(func=increment_projects_done, trigger="interval", minutes=1)  # Run every minute
+# scheduler.start()
+
+# Shut down the scheduler when exiting the app
+# atexit.register(lambda: scheduler.shutdown())
 
 @main.route('/index')
 @main.route('/')
 @main.route('/home')
 def index():
-    return render_template('index.html')
+    record = Projects.query.first()
+    total_projects = record.number_of_projects
 
+    return render_template('index.html', total_projects=total_projects)
 
 @main.route('/about')
 def about_page():
@@ -127,6 +153,10 @@ def web_dev():
 @main.route('/services/service_details')
 def service_details():
     return render_template('service-details.html')
+
+@main.route('/book_service')
+def book_service():
+    return render_template('calculate-form.html')
 
 
 @main.route('/team')
