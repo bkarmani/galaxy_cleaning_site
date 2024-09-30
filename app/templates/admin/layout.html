@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/panel.css">
+    <script src="https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-dark bg-dark shadow sticky-top">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Admin Dashboard</a>
+            <div class="d-flex">
+                <a href="#" class="nav-link text-light">Settings</a>
+                <a href="#" class="nav-link text-light">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span class="align-text-bottom">🏠</span> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="align-text-bottom">📝</span> Create Post
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="align-text-bottom">✏️</span> Edit Posts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="align-text-bottom">👥</span> Manage Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="align-text-bottom">🔒</span> Permissions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="align-text-bottom">⚙️</span> Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <h2>Create New Post</h2>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form action="/create-post" method="POST" enctype="multipart/form-data">
+                            
+                            <!-- Title -->
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Post Title</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title" required>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Post Content</label>
+                                <textarea name="content" id="editor" class="form-control" rows="10"></textarea>
+                            </div>
+
+                            <!-- Upload Media (Image/Video) -->
+                            <div class="mb-3">
+                                <label for="media" class="form-label">Upload Media</label>
+                                <input type="file" class="form-control" id="media" name="media" accept="image/*,video/*" required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Create Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- User Permissions Section -->
+                <h2 class="mt-5">Manage Permissions</h2>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form action="/update-permissions" method="POST">
+                            <div class="mb-3">
+                                <label for="user" class="form-label">Select User</label>
+                                <select class="form-select" id="user" name="user" required>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Editor</option>
+                                    <option value="3">Contributor</option>
+                                    <option value="4">Viewer</option>
+                                </select>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="createPost" name="permissions[]" value="createPost">
+                                <label class="form-check-label" for="createPost">
+                                    Can Create Post
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPost" name="permissions[]" value="editPost">
+                                <label class="form-check-label" for="editPost">
+                                    Can Edit Post
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="addUser" name="permissions[]" value="addUser">
+                                <label class="form-check-label" for="addUser">
+                                    Can Add User
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="approvePost" name="permissions[]" value="approvePost">
+                                <label class="form-check-label" for="approvePost">
+                                    Can Approve Post
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="deleteComments" name="permissions[]" value="deleteComments">
+                                <label class="form-check-label" for="deleteComments">
+                                    Can Delete Comments
+                                </label>
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn btn-success">Update Permissions</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <p>© 2024 Blog Admin Dashboard. All rights reserved.</p>
+    </footer>
+
+    <!-- CKEditor script -->
+    <script>
+        ClassicEditor.create(document.querySelector('#editor')).catch(error => {
+            console.error(error);
+        });
+    </script>
+</body>
+</html>

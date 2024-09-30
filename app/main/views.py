@@ -1,8 +1,8 @@
 from . import main
-from flask import render_template
+from flask import render_template, request, current_app
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
-from app.models import Projects
+from app.models import Projects, Post
 import os
 from app import db
 
@@ -106,9 +106,14 @@ def team2(num):
 def team3(num):
     return render_template('single-team3.html', num=num)
 
-@main.route('/blog')
+@main.route('/blog', methods=['GET', 'POST'])
 def blog_page():
-    return render_template('blog2.html')
+    page = request.args.get('page', 1, type=int)
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
+    page=page, per_page=current_app.config['FLASKY_POSTS_PER_PAGE'],
+    error_out=False)
+    posts = pagination.items
+    return render_template('blog2.html', posts=posts, pagination=pagination )
 
 @main.route('/projects')
 def projects_page():

@@ -6,7 +6,7 @@ Our Blog
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -14,7 +14,7 @@ Our Blog
                     <h1>Our Latest Blogs</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="url_for('main.index')">Home</a>
                         </li>
                         <li>Blogs</li>
                     </ul>
@@ -29,13 +29,38 @@ Our Blog
     <div class="container">
         <div class="row">
             <div class="col-lg-8 order-lg-2">
+                {%for post in posts%}
                 <div class="blog-box-layout1">
                     <div class="item-img">
-                        <a href="single-blog1.html"><img src="img/blog/blog9.jpg" alt="blog-thumb"></a>
+                        <a href="url_for('main.blog_detail')"><img src="../static/images/blog9.jpg" alt="blog-thumb"></a>
+                    </div>
+                    
+                    <div class="item-content">
+                        
+                        <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
+                        
+                        <h2 class="item-title"><a href="url_for('main.blog_detail')">The Secret of Cleaning Your Home</a></h2>
+                        
+                        <p>{{post.body}}</p>
+                        
+                        <div class="entry-meta-2">
+                            <ul>
+                                <li class="item-author">By Mark Wily</li>
+                                <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
+                                <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                {%endfor%}
+                <!-- <div class="blog-box-layout1">
+                    <div class="item-img">
+                        <a href="url_for('main.blog_detail')"><img src="../static/images/blog10.jpg" alt="blog-thumb"></a>
                     </div>
                     <div class="item-content">
                         <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
-                        <h2 class="item-title"><a href="single-blog1.html">The Secret of Cleaning Your Home</a></h2>
+                        <h2 class="item-title"><a href="url_for('main.blog_detail')">The Secret of Cleaning Your Home</a></h2>
                         <p>Aimply dummy text of the printing anden type setting industrym Ipsum has been the ndustry 
                             seay standard.Aute aliqua ball tip pariatur alcatra in sed porchetta, qui rump venison 
                             hamburger aress proident aborum pastrami aliqua shoulder exercitatio.</p>
@@ -50,11 +75,11 @@ Our Blog
                 </div>
                 <div class="blog-box-layout1">
                     <div class="item-img">
-                        <a href="single-blog1.html"><img src="img/blog/blog10.jpg" alt="blog-thumb"></a>
+                        <a href="url_for('main.blog_detail')"><img src="../static/images/blog11.jpg" alt="blog-thumb"></a>
                     </div>
                     <div class="item-content">
                         <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
-                        <h2 class="item-title"><a href="single-blog1.html">The Secret of Cleaning Your Home</a></h2>
+                        <h2 class="item-title"><a href="url_for('main.blog_detail')">The Secret of Cleaning Your Home</a></h2>
                         <p>Aimply dummy text of the printing anden type setting industrym Ipsum has been the ndustry 
                             seay standard.Aute aliqua ball tip pariatur alcatra in sed porchetta, qui rump venison 
                             hamburger aress proident aborum pastrami aliqua shoulder exercitatio.</p>
@@ -69,30 +94,11 @@ Our Blog
                 </div>
                 <div class="blog-box-layout1">
                     <div class="item-img">
-                        <a href="single-blog1.html"><img src="img/blog/blog11.jpg" alt="blog-thumb"></a>
+                        <a href="url_for('main.blog_detail')"><img src="../static/images/blog12.jpg" alt="blog-thumb"></a>
                     </div>
                     <div class="item-content">
                         <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
-                        <h2 class="item-title"><a href="single-blog1.html">The Secret of Cleaning Your Home</a></h2>
-                        <p>Aimply dummy text of the printing anden type setting industrym Ipsum has been the ndustry 
-                            seay standard.Aute aliqua ball tip pariatur alcatra in sed porchetta, qui rump venison 
-                            hamburger aress proident aborum pastrami aliqua shoulder exercitatio.</p>
-                        <div class="entry-meta-2">
-                            <ul>
-                                <li class="item-author">By Mark Wily</li>
-                                <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
-                                <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-box-layout1">
-                    <div class="item-img">
-                        <a href="single-blog1.html"><img src="img/blog/blog12.jpg" alt="blog-thumb"></a>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
-                        <h2 class="item-title"><a href="single-blog1.html">The Secret of Cleaning Your Home</a></h2>
+                        <h2 class="item-title"><a href="url_for('main.blog_detail')">The Secret of Cleaning Your Home</a></h2>
                         <p>Aimply dummy text of the printing anden type setting industrym Ipsum has been the ndustry 
                             seay standard.Aute aliqua ball tip pariatur alcatra in sed porchetta, qui rump venison 
                             hamburger aress proident aborum pastrami aliqua shoulder exercitatio.</p>
@@ -112,7 +118,7 @@ Our Blog
                         <li><a href="#" class="nav-item">3</a></li>
                         <li><a href="#" class="nav-item">4</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-4 sidebar-break-md sidebar-widget-area order-lg-1">
                 <div class="widget widget-search-box">
@@ -162,21 +168,21 @@ Our Blog
                     <ul class="recent-post-list">
                         <li>
                             <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
-                            <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
+                            <h6 class="item-title"><a href="url_for('main.blog_detail')">Why Clany’s a life-saver for my flatshare!</a></h6>
                         </li>
                         <li>
                             <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
-                            <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
+                            <h6 class="item-title"><a href="url_for('main.blog_detail')">Why Clany’s a life-saver for my flatshare!</a></h6>
                         </li>
                         <li>
                             <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
-                            <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
+                            <h6 class="item-title"><a href="url_for('main.blog_detail')">Why Clany’s a life-saver for my flatshare!</a></h6>
                         </li>
                     </ul>
                 </div>
                 <div class="widget widget-newsletter">
                     <div class="item-img">
-                        <img src="img/figure/widget.png" alt="mail">
+                        <img src="../static/images/widget.png" alt="mail">
                     </div>
                     <div class="item-content">
                         <h3 class="item-title">Newsletter</h3>

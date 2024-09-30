@@ -28,8 +28,10 @@ def create_app(config_name):
     # blueprpints
     from .main import main as main_blueprint
     from .auth import auth as auth_bp
+    from .admin import admin as admin_bp
 
     app.register_blueprint(main_blueprint)
     app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(admin_bp, url_prefix='/admin')
 
     return app
