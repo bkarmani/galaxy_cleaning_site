@@ -106,14 +106,27 @@ def team2(num):
 def team3(num):
     return render_template('single-team3.html', num=num)
 
-@main.route('/blog', methods=['GET', 'POST'])
+@main.route('/blog/', methods=['GET', 'POST'])
 def blog_page():
+    # Get the search query from the request
+    query = request.args.get('query', '', type=str)
     page = request.args.get('page', 1, type=int)
-    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
-    page=page, per_page=current_app.config['FLASKY_POSTS_PER_PAGE'],
-    error_out=False)
+
+    # Filter posts based on the search query if provided
+    if query:
+        pagination = Post.query.filter(Post.title.ilike(f'%{query}%')).order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=current_app.config['FLASKY_POSTS_PER_PAGE'], error_out=False
+        )
+    else:
+        # If no query, just get the latest posts
+        pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=current_app.config['FLASKY_POSTS_PER_PAGE'], error_out=False
+        )
+
     posts = pagination.items
-    return render_template('blog2.html', posts=posts, pagination=pagination )
+    recent_posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
+    return render_template('blog2.html', posts=posts, pagination=pagination, recent_posts=recent_posts, query=query)
+
 
 @main.route('/projects')
 def projects_page():
@@ -172,3 +185,12 @@ def team():
 @main.route('/testimonials')
 def testimonials():
     return render_template('testimonials.html')
+
+@main.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
+@main.route('/terms')
+def terms_of_service():
+    return render_template('terms.html')
+

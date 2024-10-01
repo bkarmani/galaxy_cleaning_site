@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block title %}
+privacy policy
+{% endblock %}
+
+{% block content%}
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs-area">
+                    <h1>Terms of Service</h1>
+                    <h3>Your Guide to Our Services and Policies</h3>
+                    <ul>
+                        <li>
+                            <a href="{{url_for('main.index')}}">Home</a>
+                        </li>
+                        <li>Terms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Inne Page Banner Area End Here -->
+<!-- Team Area Start Here -->
+<section class="section-padding-12 bg-dark-lg">
+    <div class="container">
+        <div class="col-lg-12">
+            <h1>Terms and Conditions for Galaxy Cleaning Services</h1>
+
+            <p>Welcome to <strong>Galaxy Cleaning Services</strong>. By booking our services, you agree to the following terms and conditions:</p>
+        
+            <h2>1. Services Provided:</h2>
+            <p>Galaxy Cleaning Services offers a range of cleaning services, including residential, commercial, specialized, and green cleaning. Services are provided based on the specific requirements outlined by the client at the time of booking.</p>
+        
+            <h2>2. Booking and Payment:</h2>
+            <ul>
+                <li><strong>Booking:</strong> All services must be booked in advance. A confirmation of your booking will be provided via email or phone.</li>
+                <li><strong>Payment:</strong> Payment for services is due upon completion unless otherwise agreed upon in writing. We accept [list payment methods]. Late payments may incur additional fees.</li>
+                <li><strong>Cancellation Policy:</strong> Cancellations must be made at least 24 hours before the scheduled service. Cancellations made within 24 hours of the appointment may be subject to a cancellation fee.</li>
+            </ul>
+        
+            <h2>3. Access and Safety:</h2>
+            <p>Clients are responsible for providing access to the property at the agreed-upon time. All valuables should be securely stored before the cleaning begins. For safety reasons, our cleaners are not permitted to move heavy furniture or handle items that may cause harm.</p>
+        
+            <h2>4. Quality of Service:</h2>
+            <p>We aim to deliver high-quality cleaning services. If you are not satisfied with our work, please contact us within 24 hours of the service, and we will arrange for a re-clean at no extra charge.</p>
+        
+            <h2>5. Liability:</h2>
+            <p>Galaxy Cleaning Services is insured to cover damages directly caused by our staff. However, we are not liable for pre-existing damage, wear and tear, or for items not secured or protected.</p>
+        
+            <h2>6. Privacy:</h2>
+            <p>Your privacy is important to us. Please refer to our <a href="{{url_for('main.privacy')}}">Privacy Policy</a> for details on how we collect, use, and protect your personal information.</p>
+        
+            <h2>7. Changes to Terms:</h2>
+            <p>We reserve the right to update these terms and conditions at any time. Changes will be communicated to clients and posted on our website.</p>
+        
+            <p>By booking our services, you acknowledge that you have read, understood, and agreed to these terms and conditions. For any questions, please contact us at <a href="mailto:info@galaxycleaning.com">info@galaxycleaning.com</a>.</p>
+</section>
+{%endblock %}

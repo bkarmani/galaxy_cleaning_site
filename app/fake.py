@@ -31,6 +31,7 @@ def posts(count=100):
     u = User.query.offset(randint(0, user_count - 1)).first()
     p = Post(body=fake.text(),
     timestamp=fake.past_date(),
+    title=fake.sentence(nb_words=4),
     author=u)
     db.session.add(p)
     db.session.commit()

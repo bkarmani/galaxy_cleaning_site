@@ -81,7 +81,7 @@
                         <div class="col-lg-6 d-flex justify-content-end">
                             <div class="header-topbar-layout1">
                                 <div class="header-top-right">
-                                    <a href="#" class="header-top-btn"><i class="fas fa-bell"></i>Get A Quote</a>
+                                    <a href="{{url_for('main.contact')}}" class="header-top-btn"><i class="fas fa-bell"></i>Get A Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -331,15 +331,15 @@
                                         <li>
                                             <a href="{{url_for('main.about_page')}}">About Us</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">Testimonials</a>
-                                        </li>
+                                        </li> -->
                                         <li>
-                                            <a href="#">Terms</a>
+                                            <a href="{{url_for('main.terms_of_service')}}">Terms</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">Media Kit</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="{{url_for('main.contact')}}">Sitemap</a>
                                         </li>
@@ -357,7 +357,7 @@
                                         <li>
                                             <a href="#">Features</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">Pricing</a>
                                         </li>
                                         <li>
@@ -365,7 +365,7 @@
                                         </li>
                                         <li>
                                             <a href="#">Cloud Affiliate Program</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -378,13 +378,13 @@
                                 <div class="footer-menu-box">
                                     <ul class="footer-menu-list">
                                         <li>
-                                            <a href="#">Become An Affiliate</a>
+                                            <a href="#">Coming Soon</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">Affiliate Portal</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
-                                    <a href="contact.html" class="contact-btn"><i class="far fa-envelope"></i>HAVE ANY QUESTION</a>
+                                    <a href="{{url_for('main.contact')}}" class="contact-btn"><i class="far fa-envelope"></i>HAVE ANY QUESTION</a>
                                 </div>
                             </div>
                         </div>
@@ -427,8 +427,8 @@
                             <div class="footer-bottom-menu">
                                 <ul>
                                     <li><a href="{{url_for('main.contact')}}">Sitemap</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{url_for('main.terms_of_service')}}">Terms of Service</a></li>
+                                    <li><a href="{{url_for('main.privacy')}}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

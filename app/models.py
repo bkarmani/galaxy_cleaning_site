@@ -269,7 +269,7 @@ class User(UserMixin, db.Model):
         return User.query.get(data['id'])
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return f'{self.username}'
 
 
 class AnonymousUser(AnonymousUserMixin):
@@ -290,6 +290,7 @@ def load_user(user_id):
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text)
     body = db.Column(db.Text)
     body_html = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now(timezone.utc))
