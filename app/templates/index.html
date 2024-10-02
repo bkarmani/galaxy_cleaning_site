@@ -5,6 +5,10 @@ Galaxy | Home
 {% endblock %}
 
 {% block content %}
+
+
+
+
 <!-- Slider Area Start Here -->
 <div class="slider-area slider-layout1">
     <div class="bend niceties preview-1">
@@ -454,8 +458,8 @@ Galaxy | Home
     <div class="container">
         <div class="heading-layout1">
             <h2><a href="{{url_for('main.teams_page')}}">Our Working Experts</a></h2>
-            <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dol
-                oremque laudantium, totam remeaque ipsa</p>
+            <p>Meet the skilled professionals behind our success. Our experts bring 
+                years of experience and dedication to ensure top-quality service</p>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-12">
@@ -555,7 +559,7 @@ Galaxy | Home
 <section class="section-padding-md-4 bg-Primary bg-common" data-bg-image="../static/images/bg-shape2.png">
     <div class="container">
         <div class="heading-layout2 mg-b-30">
-            <h2 class="text-white">What’s Client’s Say<span>About Us</span></h2>
+            <h2 class="text-white">What Clients Say About Us<span>About Us</span></h2>
         </div>
         <div class="rc-carousel nav-control-layout1" data-loop="true" data-items="10" data-margin="30"
             data-autoplay="false" data-autoplay-timeout="3000" data-smart-speed="1000" data-dots="false"
@@ -566,10 +570,12 @@ Galaxy | Home
             data-r-large-dots="false" data-r-extra-large="3" data-r-extra-large-nav="true"
             data-r-extra-large-dots="false">
             <div class="testimonial-box-layout1">
-                <p>Wimply dummy text of the printing and typesetting industryrem Ipsum has 
-                    been the industry's standard dummy text ever since </p>
-                <h3 class="item-title">Steven Joes</h3>
-                <div class="item-subtitle">CEO, RT</div>
+                <p>I couldn’t be happier with the service! The team was punctual, professional, 
+                    and left my home spotless. They paid attention to every detail and used 
+                    eco-friendly products, which I loved. Highly recommend for anyone looking 
+                    for a reliable cleaning company! </p>
+                <h3 class="item-title">Stacy Campbell</h3>
+                <div class="item-subtitle">Surgeon</div>
                 <ul class="item-rating">
                     <li><i class="fas fa-star"></i></li>
                     <li><i class="fas fa-star"></i></li>
@@ -580,10 +586,12 @@ Galaxy | Home
                 <div class="item-quote"><i class="fas fa-quote-right"></i></div>
             </div>
             <div class="testimonial-box-layout1">
-                <p>Wimply dummy text of the printing and typesetting industryrem Ipsum has 
-                    been the industry's standard dummy text ever since </p>
-                <h3 class="item-title">Mike Tyson</h3>
-                <div class="item-subtitle">CEO, RT</div>
+                <p>Exceptional service! I hired them for a deep clean before moving 
+                    into my new home, and they exceeded my expectations. The team was 
+                    thorough and efficient, and the house looked brand new when they 
+                    were done. I’ll definitely be using them again! </p>
+                <h3 class="item-title">Mike Partsy</h3>
+                <div class="item-subtitle">Software Engineer</div>
                 <ul class="item-rating">
                     <li><i class="fas fa-star"></i></li>
                     <li><i class="fas fa-star"></i></li>
@@ -594,10 +602,13 @@ Galaxy | Home
                 <div class="item-quote"><i class="fas fa-quote-right"></i></div>
             </div>
             <div class="testimonial-box-layout1">
-                <p>Wimply dummy text of the printing and typesetting industryrem Ipsum has 
-                    been the industry's standard dummy text ever since </p>
-                <h3 class="item-title">Bobby John</h3>
-                <div class="item-subtitle">CEO, RT</div>
+                <p>Great experience from start to finish. The cleaners were friendly, 
+                    hardworking, and left my office looking immaculate. I appreciate 
+                    their attention to detail and commitment to using sustainable 
+                    cleaning products. A trustworthy company that I’ll be recommending 
+                    to others.</p>
+                <h3 class="item-title">Charlie Wilson</h3>
+                <div class="item-subtitle">Designer</div>
                 <ul class="item-rating">
                     <li><i class="fas fa-star"></i></li>
                     <li><i class="fas fa-star"></i></li>
@@ -616,31 +627,31 @@ Galaxy | Home
     <div class="container">
         <div class="heading-layout1">
             <h2> Our Latest Blogs</h2>
-            <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium fa-angle-double-up
-            oremque laudantium, totam remeaque ipsa</p>
+            <p>Stay updated with our latest blog posts! Find recent updates, expert insights, and helpful tips on trends and how-tos.</p>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="blog-box-layout1">
-                    <div class="item-img">
-                        <a href="single-blog1.html"><img src="../static/images/blog7.jpg" alt="blog-thumb"></a>
-                    </div>
-                    <div class="item-content">
-                        <div class="item-date"><i class="fas fa-calendar-alt"></i>24 July, 2019</div>
-                        <h3 class="item-title"><a href="single-blog1.html">What is Best domin Name For Business</a></h3>
-                        <div class="item-author">By Mark Wily</div>
-                        <p>Aimply dummy text of the printing anden type setting industrym Ipsum has 
-                            been the industry's standard.</p>
-                        <div class="entry-meta">
-                            <ul>
-                                <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
-                                <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
-                            </ul>
+            {% for post in posts%}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="blog-box-layout1">
+                        <div class="item-img">
+                            <a href="single-blog1.html"><img src="../static/images/blog7.jpg" alt="blog-thumb"></a>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
+                            <h3 class="item-title"><a href="single-blog1.html">{{post.title}}</a></h3>
+                            <div class="item-author">{{post.author}}</div>
+                            <p>{{post.body | truncate_body(5)}}</p>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
+                                    <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            {%endfor%}
+            <!-- <div class="col-lg-4 col-md-6 col-12">
                 <div class="blog-box-layout1">
                     <div class="item-img">
                         <a href="single-blog1.html"><img src="../static/images/blog2.jpg" alt="blog-thumb"></a>
@@ -679,7 +690,7 @@ Galaxy | Home
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

@@ -375,6 +375,16 @@ class Projects(db.Model):
     number_of_projects = db.Column(db.Integer(), default=0)
 
 
+class Subscribers(db.Model):
+    __table_name__ = 'subscribers'
+    id = db.Column(db.Integer(), primary_key=True)
+    email = db.Column(db.String(), unique=True)
+
+    def __repr__(self):
+        return self.email
+    
+
+
 
 
 

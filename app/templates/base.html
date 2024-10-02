@@ -284,6 +284,15 @@
                 </div>
             </div>
         </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+
+                <div class="alert fade_{{category}} .fade"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button> <strong>{{message}}</strong> </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <!-- Header Area End Here -->
 
         {% block content%}
@@ -395,12 +404,14 @@
                         <div class="col-lg-5 col-12">
                             <div class="footer-newsletter">
                                 <h3 class="item-title">Sign up for news and special offers</h3>
-                                <div class="input-group stylish-input-group">
-                                    <input type="text" class="form-control" placeholder="Search Keywords ...">
-                                    <span class="input-group-addon">
-                                        <button type="submit">Submit</button>
-                                    </span>
-                                </div>
+                                <form method="POST" action="{{url_for('main.subscribe_user')}}" >
+                                    <div class="input-group stylish-input-group">
+                                        <input type="text" name="sub_email" class="form-control" placeholder="Search Keywords ...">
+                                        <span class="input-group-addon">
+                                            <button type="submit">Submit</button>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-7 col-12">

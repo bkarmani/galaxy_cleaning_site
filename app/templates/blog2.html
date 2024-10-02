@@ -29,7 +29,7 @@ Our Blog
     <div class="container">
         <div class="row">
             <div class="col-lg-8 order-lg-2">
-                {%for post in posts%}
+                {%for hashed_post in hashed_posts%}
                 <div class="blog-box-layout1">
                     <div class="item-img">
                         <a href="url_for('main.blog_detail')"><img src="../static/images/blog9.jpg" alt="blog-thumb"></a>
@@ -37,15 +37,15 @@ Our Blog
                     
                     <div class="item-content">
                         
-                        <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
+                        <div class="item-date"><i class="fas fa-calendar-alt"></i>{{hashed_post['post'].timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
                         
-                        <h2 class="item-title"><a href="url_for('main.blog_detail')">{{post.title}}</a></h2>
+                        <h2 class="item-title"><a href="{{url_for('main.blog_detail', token=hashed_post['token'])}}">{{hashed_post['post'].title}}</a></h2>
                         
-                        <p>{{post.body}}</p>
+                        <p>{{hashed_post['post'].body}}</p>
                         
                         <div class="entry-meta-2">
                             <ul>
-                                <li class="item-author">By {{post.author}}</li>
+                                <li class="item-author">By {{hashed_post['post'].author}}</li>
                                 <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
                                 <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
                             </ul>
@@ -185,8 +185,8 @@ Our Blog
                     <ul class="recent-post-list">
                         {%for recent_post in recent_posts%}
                         <li>
-                            <div class="post-date"><i class="far fa-clock"></i>{{recent_post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
-                            <h6 class="item-title"><a href="url_for('main.blog_detail')">{{recent_post.title}}</a></h6>
+                            <div class="post-date"><i class="far fa-clock"></i>{{recent_post['post'].timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
+                            <h6 class="item-title"><a href="{{url_for('main.blog_detail', token=recent_post['token'])}}">{{recent_post['post'].title}}</a></h6>
                         </li>
                         {%endfor%}
                         <!-- <li>
@@ -206,10 +206,10 @@ Our Blog
                     <div class="item-content">
                         <h3 class="item-title">Newsletter</h3>
                         <p>Subscribe us &amp; stay with updates  </p>
-                        <form class="form-box">
+                        <form method="POST" action="{{url_for('main.subscribe_user')}}" class="form-box">
                             <div class="row">
                                 <div class="col-12 form-group">
-                                    <input type="email" placeholder="Enter your e-mail" class="form-control" name="name" data-error="Name field is required" required>
+                                    <input type="email" placeholder="Enter your e-mail" class="form-control" name="sub_email" data-error="Name field is required" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="col-12 form-group">
