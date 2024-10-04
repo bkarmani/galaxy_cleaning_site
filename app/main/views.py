@@ -1,8 +1,7 @@
 from . import main
-from flask import render_template, request, current_app, redirect, flash, abort
-from apscheduler.schedulers.background import BackgroundScheduler
-import atexit
+from flask import render_template, request, current_app, redirect, flash, abort, url_for
 from app.models import Projects, Post, Subscribers
+from .forms import QuotesForm
 import os,re
 from app import db
 from itsdangerous import URLSafeSerializer, BadSignature
@@ -51,12 +50,34 @@ def truncate_body(text, num_words=20):
 @main.route('/', methods=['GET', 'POST'])
 @main.route('/home', methods=['GET', 'POST'])
 def index():
+    form = QuotesForm()
     record = Projects.query.first()
     total_projects = record.number_of_projects
 
     posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
+    hashed_posts = [
+        {"token": s.dumps(post.id), "post": post} for post in posts
+    ]
+    if form.validate_on_submit():
+        form_data = {
+            'name':form.name.data,
+            'email' : form.email.data,
+            'phone_num' : form.phone.data,
+            'address' : form.address.data,
+            'comments' : form.comments.data,
+            'selected_service' : form.cleaning_service,
+            'date' : form.date.data,
+            'time' : form.time.data,
+            'zipcode' : form.zip_code.data,
+            'budget' : form.budget.data,
+            'approx_sf' : form.approx_sf.data,
+            'property_type' : form.property_type.data
+        }
+        # send email algorithims 
+        flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
+        return redirect(url_for('main.index'))
 
-    return render_template('index.html', total_projects=total_projects, posts=posts)
+    return render_template('index.html', total_projects=total_projects, recent_posts=hashed_posts, form=form)
 
 
 @main.route('/about')
@@ -191,43 +212,21 @@ def projects_page():
 
 @main.route('/blog/<string:token>')
 def blog_detail(token):
+    recent_posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
+    hashed_recent_posts = [
+        {"token": s.dumps(post.id), "post": post} for post in recent_posts
+    ]
     try:  
         post_id = s.loads(token)        
         post = Post.query.get_or_404(post_id)
     except BadSignature:
         abort(404)
-    return render_template('single-blog1.html', post=post)
+    return render_template('single-blog1.html', post=post, recent_posts=hashed_recent_posts)
 
 
 @main.route('/contact')
 def contact():
     return render_template('contact.html')
-
-
-@main.route('/services/digital-marketing')
-def digital_marketing():
-    return render_template('digital-marketing.html')
-
-
-@main.route('/services/ui-ux-design')
-def ui_ux_design():
-    return render_template('ui-ux-design.html')
-
-
-@main.route('/services/seo-marketing')
-def seo_marketing():
-    return render_template('seo-marketing.html')
-
-
-@main.route('/services/graphic-design')
-def graphic_design():
-    return render_template('graphic-design.html')
-
-
-@main.route('/services/development')
-def web_dev():
-    return render_template('web-development.html')
-
 
 @main.route('/services/service_details')
 def service_details():
@@ -254,4 +253,11 @@ def privacy():
 @main.route('/terms')
 def terms_of_service():
     return render_template('terms.html')
+
+@main.route('/get-estimate', methods=['GET', 'POST'])
+def get_estimate():
+    if request.method == 'POST':
+        name = request.form.get('email')
+                
+    return redirect(request.referrer)
 

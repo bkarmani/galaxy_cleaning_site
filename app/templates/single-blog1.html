@@ -6,7 +6,7 @@ blog post detail
 
 {% block content %}
     <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+    <section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -34,29 +34,22 @@ blog post detail
                 <div class="col-lg-8">
                     <div class="single-blog-box-layout1">
                         <div class="main-img">
-                            <img src="img/service/service9.jpg" alt="blog">
+                            <img src="../static/images/service9.jpg" alt="blog">
                         </div>
                         <div class="item-details">
-                            <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp}}</div>
+                            <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
                             <h2 class="item-title">{{post.title}}</h2>
                             <div class="entry-meta">
                                 <ul>
                                     <li class="item-author">
-                                        <img src="img/figure/author.png" alt="author">
-                                        By Mark Wily
+                                        <img src="../static/images/author.png" alt="author">
+                                        By {{post.author}}
                                     </li>
                                     <li><i class="fas fa-heart"></i><span>06</span> <a href="#">Likes</a></li>
                                     <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
                                 </ul>
                             </div>
-                            <p>Cagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
-                                aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                                non proident, sunt in culpa qui officia deserunt mollit anim id 
-                                est laborum. Sed ut perspiciatis unde omnis iste natus error sit 
-                                voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-                                eaque ipsa quae ab illo invery.</p>
+                            <p>{{post.body}}</p>
                             <blockquote>
                                 ” Aimply dummy text of the printing and ustryorem Ipsum 
                                 has been the industry's standard dummy text ever since ”
@@ -69,7 +62,7 @@ blog post detail
                                 cupidatat non proident, sunt in culpa qui officia deserunt mollit 
                                 anim id est laborum. Sed ut perspiciatis unde omnis iste natus errore.</p>
                         </div>
-                        <div class="blog-social-area">
+                        <!-- <div class="blog-social-area">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="single-post-tag">
@@ -95,14 +88,14 @@ blog post detail
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="blog-author">
                             <div class="media media-none--sm">
                                 <div class="item-img">
-                                    <img src="img/blog/author.jpg" class="media-img-auto" alt="Lora Zaman">
+                                    <img src="../static/images/author.jpg" class="media-img-auto" alt="Lora Zaman">
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="item-title">Dainel Rose</h3>
+                                    <h3 class="item-title">{{post.author}}</h3>
                                     <div class="item-subtitle">Author</div>
                                     <ul class="item-social">
                                         <li><a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a></li>
@@ -118,11 +111,11 @@ blog post detail
                         </div>
                         <div class="pagination-layout2">
                             <div class="row">
-                                <div class="col-6">
+                                <!-- <div class="col-6">
                                     <div class="prev-btn">
                                         <div class="media media-none--lg">
                                             <div class="item-img">
-                                                <a href="#"><img src="img/figure/pagination.jpg" class="media-img-auto" alt="Prev"></a>
+                                                <a href="#"><img src="../static/images/pagination.jpg" class="media-img-auto" alt="Prev"></a>
                                             </div>
                                             <div class="media-body">
                                                 <h5 class="item-title">How an Island Formsn And Stones</h5>
@@ -131,12 +124,12 @@ blog post detail
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
+                                </div> -->
+                                <!-- <div class="col-6">
                                     <div class="next-btn">
                                         <div class="media media-none--lg">
                                             <div class="item-img">
-                                                <a href="#"><img src="img/figure/pagination1.jpg" class="media-img-auto" alt="Prev"></a>
+                                                <a href="#"><img src="../static/images/pagination1.jpg" class="media-img-auto" alt="Prev"></a>
                                             </div>
                                             <div class="media-body mg-right text-right">
                                                 <h5 class="item-title">How an Island Formsn And Stones</h5>
@@ -145,10 +138,10 @@ blog post detail
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="blog-comment">
+                        <!-- <div class="blog-comment">
                             <div class="heading-layout4">
                                 <h4><span>(02)</span> Discussion</h4>
                             </div>
@@ -176,8 +169,8 @@ blog post detail
                                     <a href="#" class="item-btn">Reply</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="blog-form">
+                        </div> -->
+                        <!-- <div class="blog-form">
                             <div class="heading-layout4">
                                 <h3>Leave a Reply</h3>
                             </div>
@@ -206,11 +199,11 @@ blog post detail
                                 </div>
                                 <div class="form-response"></div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-4 sidebar-break-md sidebar-widget-area">
-                    <div class="widget widget-search-box">
+                    <!-- <div class="widget widget-search-box">
                         <div class="heading-layout4">
                             <h4>Search</h4>
                         </div>
@@ -222,7 +215,7 @@ blog post detail
                                 </button>
                             </span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="widget widget-category">
                         <div class="heading-layout4">
                             <h4>Categories</h4>
@@ -255,31 +248,33 @@ blog post detail
                             <h4>Recent Posts</h4>
                         </div>
                         <ul class="recent-post-list">
+                            {% for recent_post in recent_posts%}
                             <li>
+                                <div class="post-date"><i class="far fa-clock"></i> {{recent_post['post'].timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
+                                <h6 class="item-title"><a href="{{url_for('main.blog_detail', token=recent_post['token'])}}">{{recent_post['post'].title}}</a></h6>
+                            </li>
+                            {% endfor %}
+                            <!-- <li>
                                 <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
                                 <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
                             </li>
                             <li>
                                 <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
                                 <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
-                            </li>
-                            <li>
-                                <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
-                                <h6 class="item-title"><a href="single-blog1.html">Why Clany’s a life-saver for my flatshare!</a></h6>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="widget widget-newsletter">
                         <div class="item-img">
-                            <img src="img/figure/widget.png" alt="mail">
+                            <img src="../static/images/widget.png" alt="mail">
                         </div>
                         <div class="item-content">
                             <h3 class="item-title">Newsletter</h3>
                             <p>Subscribe us &amp; stay with updates  </p>
-                            <form class="form-box">
+                            <form method="post" action="{{url_for('main.subscribe_user')}}" class="form-box">
                                 <div class="row">
                                     <div class="col-12 form-group">
-                                        <input type="email" placeholder="Enter your e-mail" class="form-control" name="name" data-error="Name field is required" required>
+                                        <input type="email" placeholder="Enter your e-mail" class="form-control" name="sub_email" data-error="Name field is required" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
@@ -290,7 +285,7 @@ blog post detail
                             </form>
                         </div>
                     </div>
-                    <div class="widget widget-archive">
+                    <!-- <div class="widget widget-archive">
                         <div class="heading-layout4">
                             <h4>Archives</h4>
                         </div>
@@ -310,8 +305,8 @@ blog post detail
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="widget widget-tag">
+                    </div> -->
+                    <!-- <div class="widget widget-tag">
                         <div class="heading-layout4">
                             <h4>Tags</h4>
                         </div>
@@ -323,7 +318,7 @@ blog post detail
                             <li><a href="#">Apartment Cleaning</a></li>
                             <li><a href="#">Floor Cleaning</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

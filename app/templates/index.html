@@ -156,7 +156,7 @@ Galaxy | Home
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="service-box-layout1">
                     <div class="item-img">
-                        <img src="../static/images/service1.jpg" alt="Thumb">
+                        <img src="../static/images/service1.png" alt="Thumb">
                     </div>
                     <div class="item-middle-content">
                         <div class="item-icon">
@@ -262,25 +262,74 @@ Galaxy | Home
             </div>
             <div class="col-xl-5 col-lg-6 col-12">
                 <div class="about-box-layout2">
-                    <h3 class="item-title">Request An Estimate</h3>
-                    <form class="contact-form-box" id="contact-form">
+
+                    <h3 class="item-title">An Estimate</h3>
+                    <form class="contact-form-box" method="POST" action="">
+                        <div class="row gutters-10">
+                            {{ form.hidden_tag() }}
+                            <div class="col-12 form-group">
+                                {{ form.cleaning_service(class="select2") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.property_type(class="select2") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.approx_sf(class="select2") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                 {{ form.budget(class="form-control") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                 {{ form.zip_code(class="form-control", placeholder="ZIP Code") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group datetime-picker">
+                                {{ form.date(class="form-control", placeholder="dd/mm/yy") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group datetime-picker">
+                                {{ form.time(class="form-control", placeholder="Time") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.name(class="form-control", placeholder="Name") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.phone(class="form-control", placeholder="Phone") }}
+                            </div>
+                            <div class="col-12 form-group">
+                                {{ form.email(class="form-control", placeholder="E-mail Address") }}
+                            </div>
+                            <div class="col-12 form-group mg-b-20">
+                                {{ form.address(class="form-control", placeholder="Address") }}
+                            </div>
+                            <div class="col-12 form-group mg-b-20">
+                                {{ form.comments(class="form-control", placeholder="Comments") }}
+                            </div>
+                            <div class="col-12 form-group">
+                                {{ form.submit(class="fw-btn-fill bg-accent text-primarytext") }}
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <form class="contact-form-box">
                         <div class="row gutters-10">
                             <div class="col-12 form-group">
                                 <select class="select2">
-                                    <option value="0">Residential</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
+                                    <option value="0">Residential cleaning</option>
+                                    <option value="1">Commercial cleaning</option>
+                                    <option value="2">Custom cleaning</option>
+                                    <option value="3">Green cleaning</option>
+                                    <option value="4">Sanitization & Disinfection</option>
+                                    <option value="4">Car Wash</option>
+                                    <option value="4">Specilized Cleaning</option>          
                                 </select>
                             </div>
                             <div class="col-md-6 col-12 form-group">
                                 <select class="select2">
-                                    <option value="0">Property Type</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
+                                    <option value="0">Type</option>
+                                    <option value="1">Apartment</option>
+                                    <option value="2">Office Space</option>
+                                    <option value="3">Car</option>
+                                    <option value="4">Rugs</option>
+                                    <option value="5">A particular Space</option>
+                                    <option value="6">Other</option>
                                 </select>
                             </div>
                             <div class="col-md-6 col-12 form-group">
@@ -293,31 +342,8 @@ Galaxy | Home
                                 </select>
                             </div>
                             <div class="col-md-6 col-12 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Bedrooms --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-12 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Bathrooms --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-12 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Frequency --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
+                                <input type="text" placeholder="Budget" class="form-control" name="name" data-error="budget is required" required>
+                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-md-6 col-12 form-group">
                                 <input type="text" placeholder="ZIP Code" class="form-control" name="name" data-error="zip code field is required" required>
@@ -348,12 +374,17 @@ Galaxy | Home
                                 data-error="Message field is required" required></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
+                            <div class="col-12 form-group mg-b-20">
+                                <textarea placeholder="comments" class="textarea form-control" name="message" id="form-message" rows="2" cols="20" 
+                                data-error="Message field is required" required></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
                             <div class="col-12 form-group">
                                 <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Book Now<i class="fas fa-angle-right"></i></button>
                             </div>
                         </div>
                         <div class="form-response"></div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
@@ -630,17 +661,17 @@ Galaxy | Home
             <p>Stay updated with our latest blog posts! Find recent updates, expert insights, and helpful tips on trends and how-tos.</p>
         </div>
         <div class="row">
-            {% for post in posts%}
+            {% for recent_post in recent_posts%}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="blog-box-layout1">
                         <div class="item-img">
-                            <a href="single-blog1.html"><img src="../static/images/blog7.jpg" alt="blog-thumb"></a>
+                            <a href="{{url_for('main.blog_detail', token=recent_post['token'])}}"><img src="../static/images/blog7.jpg" alt="blog-thumb"></a>
                         </div>
                         <div class="item-content">
-                            <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
-                            <h3 class="item-title"><a href="single-blog1.html">{{post.title}}</a></h3>
-                            <div class="item-author">{{post.author}}</div>
-                            <p>{{post.body | truncate_body(5)}}</p>
+                            <div class="item-date"><i class="fas fa-calendar-alt"></i>{{recent_post['post'].timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
+                            <h3 class="item-title"><a href="{{url_for('main.blog_detail', token=recent_post['token'])}}">{{recent_post['post'].title}}</a></h3>
+                            <div class="item-author">{{recent_post['post'].author}}</div>
+                            <p>{{recent_post['post'].body | truncate_body(5)}}</p>
                             <div class="entry-meta">
                                 <ul>
                                     <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
