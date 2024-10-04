@@ -73,7 +73,9 @@ def index():
             'approx_sf' : form.approx_sf.data,
             'property_type' : form.property_type.data
         }
-        # send email algorithims 
+        # send email algor
+
+        # notify user of success
         flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
         return redirect(url_for('main.index'))
 
@@ -228,14 +230,21 @@ def blog_detail(token):
 def contact():
     return render_template('contact.html')
 
+@main.route('/message-us', methods=['GET', 'POST'])
+def message_us():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        subject = request.form.get('subject')
+        message = request.form.get('message')
+        flash('thank you for messaging us, we will get back to you shortly', category='success')
+        # send email algo goes here
+    return redirect(request.referrer)
+
 @main.route('/services/service_details')
 def service_details():
     return render_template('service-details.html')
-
-@main.route('/book_service')
-def book_service():
-    return render_template('calculate-form.html')
-
 
 @main.route('/team')
 def team():
@@ -253,6 +262,14 @@ def privacy():
 @main.route('/terms')
 def terms_of_service():
     return render_template('terms.html')
+
+@main.route('/request-estimate', methods=['GET', 'POST'])
+def request_estimate():
+    form = QuotesForm()
+    if form.validate_on_submit():
+        flash('success, we shall get back to you shortly', category='success')
+        return redirect(url_for('main.index'))
+    return render_template('calculate-form.html', form=form)
 
 @main.route('/get-estimate', methods=['GET', 'POST'])
 def get_estimate():

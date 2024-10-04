@@ -6,17 +6,17 @@ Online Booking
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumbs-area">
-                    <h1>Online Booking Form</h1>
+                    <h1>Request Estimate Form</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
-                        <li>Form</li>
+                        <li>Request Form</li>
                     </ul>
                 </div>
             </div>
@@ -30,29 +30,22 @@ Online Booking
         <div class="row">
             <div class="col-xl-7 col-lg-6 col-12">
                 <div class="about-box-layout1">
-                    <h2 class="item-title">Quick Calculate &amp; Book Your Desire Service</h2>
-                    <div class="item-subtitle">There are many variations of passages of Lorem Ipsum available, 
-                        but the majority have suffered alteration in some form.</div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority 
-                        have suffered alteration in some form, by injected humour, or randomised 
-                        words which don't look even slightly believable. some form, by injected humour, 
-                        some form, by injected humour.</p>
+                    <h2 class="item-title">Our Goal is to Wow With Every Clean. Quick Calculate Your Desired Service</h2>
+                    <div class="item-subtitle">Our cleaning company's mission is to create clean, healthy, and welcoming environments that enhance the quality of life for our clients, whether at home or in the workplace.</div>
+                    <p>We are dedicated to delivering exceptional cleaning services with integrity, reliability, and attention to detail, ensuring every space we touch is spotless, safe, and cared for with the utmost respect.</p>
                     <div class="list-item">
                         <ul>
                             <li>
                                 <h3>Customer Focused Reviews</h3>
-                                <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                    eiusmod tempor incididunt ut labore et dolore.</p>
+                                <p>We prioritize honest feedback to ensure exceptional service and continuous improvement. Our reviews reflect trust, satisfaction, and our commitment to exceeding customer expectations every time.</p>
                             </li>
                             <li>
-                                <h3>We Are Committed</h3>
-                                <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                    eiusmod tempor incididunt ut labore et dolore.</p>
+                                <h3>Sustainability</h3>
+                                <p>We are dedicated to promoting a healthier planet by using eco-friendly cleaning products and sustainable practices that reduce our environmental footprint.</p>
                             </li>
                             <li>
-                                <h3>Regular &amp; Monthly Cleaning</h3>
-                                <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                    eiusmod tempor incididunt ut labore et dolore.</p>
+                                <h3>Quality & Excellence</h3>
+                                <p>We are committed to maintaining high standards of service through meticulous attention to detail, consistent performance, and the use of high-quality, eco-friendly products.</p>
                             </li>
                         </ul>
                     </div>
@@ -61,96 +54,49 @@ Online Booking
             <div class="col-xl-5 col-lg-6 col-12">
                 <div class="about-box-layout2">
                     <h3 class="item-title">Request An Estimate</h3>
-                    <form class="contact-form-box" id="contact-form">
+                    <form class="contact-form-box" method="POST" action="">
                         <div class="row gutters-10">
+                            {{ form.hidden_tag() }}
                             <div class="col-12 form-group">
-                                <select class="select2">
-                                    <option value="0">Residential</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="select2">
-                                    <option value="0">Property Type</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Approx SF --</option>
-                                    <option value="1">400</option>
-                                    <option value="2">200</option>
-                                    <option value="3">600</option>
-                                    <option value="4">300</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Bedrooms --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Bathrooms --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="select2">
-                                    <option value="0">-- Frequency --</option>
-                                    <option value="1">Residential</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Plot</option>
-                                    <option value="4">Apartment</option>
-                                </select>
+                                {{ form.cleaning_service(class="select2") }}
                             </div>
                             <div class="col-md-6 col-12 form-group">
-                                <input type="text" placeholder="ZIP Code" class="form-control" name="name" data-error="zip code field is required" required>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="col-md-6 form-group datetime-picker">
-                                <i class="far fa-calendar-alt"></i>
-                                <input type="text" class="form-control rt-date" placeholder="dd/mm/yy" name="date" id="form-date" data-error="Subject field is required" required/>
-                            </div>
-                            <div class="col-md-6 form-group datetime-picker">
-                                <i class="far fa-clock"></i>
-                                <input type="text" class="form-control rt-time" placeholder="Time" name="time" id="form-time" data-error="Subject field is required" required/>
+                                {{ form.property_type(class="select2") }}
                             </div>
                             <div class="col-md-6 col-12 form-group">
-                                <input type="text" placeholder="Name" class="form-control" name="name" data-error="Name field is required" required>
-                                <div class="help-block with-errors"></div>
+                                {{ form.approx_sf(class="select2") }}
                             </div>
                             <div class="col-md-6 col-12 form-group">
-                                <input type="text" placeholder="Phone" class="form-control" name="phone" data-error="Phone field is required" required>
-                                <div class="help-block with-errors"></div>
+                                 {{ form.budget(class="form-control") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                 {{ form.zip_code(class="form-control", placeholder="ZIP Code") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group datetime-picker">
+                                {{ form.date(class="form-control", placeholder="dd/mm/yy") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group datetime-picker">
+                                {{ form.time(class="form-control", placeholder="Time") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.name(class="form-control", placeholder="Name") }}
+                            </div>
+                            <div class="col-md-6 col-12 form-group">
+                                {{ form.phone(class="form-control", placeholder="Phone") }}
                             </div>
                             <div class="col-12 form-group">
-                                <input type="email" placeholder="E-mail Address" class="form-control" name="email" data-error="email field is required" required>
-                                <div class="help-block with-errors"></div>
+                                {{ form.email(class="form-control", placeholder="E-mail Address") }}
                             </div>
                             <div class="col-12 form-group mg-b-20">
-                                <textarea placeholder="Address" class="textarea form-control" name="message" id="form-message" rows="2" cols="20" 
-                                data-error="Message field is required" required></textarea>
-                                <div class="help-block with-errors"></div>
+                                {{ form.address(class="form-control", placeholder="Address") }}
+                            </div>
+                            <div class="col-12 form-group mg-b-20">
+                                {{ form.comments(class="form-control", placeholder="Comments") }}
                             </div>
                             <div class="col-12 form-group">
-                                <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Book Now<i class="fas fa-angle-right"></i></button>
+                                {{ form.submit(class="fw-btn-fill bg-accent text-primarytext") }}
                             </div>
                         </div>
-                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>

@@ -96,7 +96,9 @@ class QuotesForm(FlaskForm):
     comments = TextAreaField('Comments', validators=[DataRequired()])
 
     # Submit button
-    submit = SubmitField('Book Now')
+    submit = SubmitField('Request Now')
+
+
 
 
     

@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title%}
+About us
+{% endblock %}
+
 {% block content %}
 
 <!-- Inne Page Banner Area Start Here -->
@@ -102,8 +106,8 @@
     <div class="container">
         <div class="heading-layout1">
             <h2>Our Working Experts</h2>
-            <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dol
-                oremque laudantium, totam remeaque ipsa</p>
+            <p>Meet the skilled professionals behind our success. Our experts bring 
+                years of experience and dedication to ensure top-quality service</p>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-12">
@@ -186,8 +190,7 @@
     <div class="container">
         <div class="heading-layout1">
             <h2>How It Works</h2>
-            <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium dol
-                oremque laudantium, totam remeaque ipsa</p>
+            <p>At Galaxy Cleaning Services, we make the process of getting your space cleaned simple and hassle-free. Follow these three easy steps to experience our professional and personalized cleaning services tailored to meet your needs.</p>
         </div>
         <div class="row">
             <div class="col-lg-4 single-process">
@@ -199,9 +202,8 @@
                         </div>
                     </div>
                     <div class="item-content">
-                        <h3 class="item-title">Book Online</h3>
-                        <p>Ahen an unknown printer took a galley
-                            of type and scrambled.</p>
+                        <h3 class="item-title">Contact Us to Book Our Services</h3>
+                        <p>Reach out to us through our website, phone, or social media to schedule your cleaning service.</p>
                     </div>
                 </div>
             </div>
@@ -214,9 +216,8 @@
                         </div>
                     </div>
                     <div class="item-content">
-                        <h3 class="item-title">Get Confirmation</h3>
-                        <p>Ahen an unknown printer took a galley
-                            of type and scrambled.</p>
+                        <h3 class="item-title">Get Feedback From Us</h3>
+                        <p>Once we've reviewed your request, we'll provide you with a customized cleaning plan and a transparent quote.</p>
                     </div>
                 </div>
             </div>
@@ -230,8 +231,7 @@
                     </div>
                     <div class="item-content">
                         <h3 class="item-title">Let’s Enjoy</h3>
-                        <p>Ahen an unknown printer took a galley
-                            of type and scrambled.</p>
+                        <p>Sit back and relax while our professional cleaners transform your space. We handle everything so you can enjoy a spotless environment.</p>
                     </div>
                 </div>
             </div>
@@ -253,7 +253,7 @@
                     <div class="item-img">
                         <img src="../static/images/figure4.png" alt="img">
                     </div>
-                    <a href="#" class="btn-fill-md btn-slide-hover bg-accent text-primarytext">Get an Estimate<i class="fas fa-angle-right"></i></a>
+                    <a href="{{url_for('main.request_estimate')}}" class="btn-fill-md btn-slide-hover bg-accent text-primarytext">Get an Estimate<i class="fas fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
