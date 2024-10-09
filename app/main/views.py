@@ -52,7 +52,7 @@ def truncate_body(text, num_words=20):
 def index():
     form = QuotesForm()
     record = Projects.query.first()
-    total_projects = record.number_of_projects
+    projects = record.total_projects
 
     posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
     hashed_posts = [
@@ -79,7 +79,7 @@ def index():
         flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
         return redirect(url_for('main.index'))
 
-    return render_template('index.html', total_projects=total_projects, recent_posts=hashed_posts, form=form)
+    return render_template('index.html', total_projects=projects, recent_posts=hashed_posts, form=form)
 
 
 @main.route('/about')
@@ -163,20 +163,20 @@ def specialized():
 
 
 
-@main.route('/team/members')
-def teams_page():
-    return render_template('team1.html')
+# @main.route('/team/members')
+# def teams_page():
+#     return render_template('team1.html')
 
-@main.route('/team/members/<int:num>')
-def team1(num):
-    return render_template('single-team1.html', num=num)
+# @main.route('/team/members/<int:num>')
+# def team1(num):
+#     return render_template('single-team1.html', num=num)
 
-@main.route('/team/members/<int:num>')
-def team2(num):
-    return render_template('single-team2.html', num=num)
+# @main.route('/team/members/<int:num>')
+# def team2(num):
+#     return render_template('single-team2.html', num=num)
 
-@main.route('/team/members/<int:num>')
-def team3(num):
+# @main.route('/team/members/<int:num>')
+# def team3(num):
     return render_template('single-team3.html', num=num)
 
 @main.route('/blog/', methods=['GET', 'POST'])
@@ -207,11 +207,6 @@ def blog_page():
     return render_template('blog2.html', pagination=pagination, recent_posts=hashed_recent_posts, query=query, hashed_posts=hashed_posts)
 
 
-@main.route('/projects')
-def projects_page():
-    return render_template('project1.html')
-
-
 @main.route('/blog/<string:token>')
 def blog_detail(token):
     recent_posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
@@ -226,9 +221,34 @@ def blog_detail(token):
     return render_template('single-blog1.html', post=post, recent_posts=hashed_recent_posts)
 
 
+@main.route('/projects/')
+def projects_page():
+    recent_projects = Projects.query.order_by(Projects.id.desc()).limit(6).all()
+    hashed_projects = [
+        {"token": s.dumps(project.id), "project": project} for project in recent_projects
+    ]
+    return render_template('project1.html', projects=hashed_projects)
+
+
+
+@main.route('/projects/<string:token>')
+def project_detail(token):
+    recent_posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
+    hashed_recent_posts = [
+        {"token": s.dumps(post.id), "post": post} for post in recent_posts
+    ]
+    try:  
+        projects_id = s.loads(token)        
+        project = Projects.query.get_or_404(projects_id)
+    except BadSignature:
+        abort(404)
+    return render_template('single-project1.html', project=project, recent_posts=hashed_recent_posts)
+
+
 @main.route('/contact')
 def contact():
     return render_template('contact.html')
+
 
 @main.route('/message-us', methods=['GET', 'POST'])
 def message_us():
@@ -242,9 +262,11 @@ def message_us():
         # send email algo goes here
     return redirect(request.referrer)
 
+
 @main.route('/services/service_details')
 def service_details():
     return render_template('service-details.html')
+
 
 @main.route('/team')
 def team():
@@ -255,13 +277,16 @@ def team():
 def testimonials():
     return render_template('testimonials.html')
 
+
 @main.route('/privacy')
 def privacy():
     return render_template('privacy.html')
 
+
 @main.route('/terms')
 def terms_of_service():
     return render_template('terms.html')
+
 
 @main.route('/request-estimate', methods=['GET', 'POST'])
 def request_estimate():
@@ -270,6 +295,7 @@ def request_estimate():
         flash('success, we shall get back to you shortly', category='success')
         return redirect(url_for('main.index'))
     return render_template('calculate-form.html', form=form)
+
 
 @main.route('/get-estimate', methods=['GET', 'POST'])
 def get_estimate():

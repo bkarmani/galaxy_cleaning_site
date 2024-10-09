@@ -370,9 +370,30 @@ db.event.listen(Comment.body, 'set', Comment.on_changed_body)
 
 
 class Projects(db.Model):
-    __table_name__ = 'projects'
+    __tablename__ = 'projects'
+    
     id = db.Column(db.Integer(), primary_key=True)
-    number_of_projects = db.Column(db.Integer(), default=0)
+    
+    # Project details
+    title = db.Column(db.String(150), nullable=False)  # Title of the project
+    introduction = db.Column(db.Text(), nullable=False)  # Introduction of the project
+    
+    # Execution details
+    execution_title = db.Column(db.String(150), nullable=False)  # Title of how you carried out the project
+    execution_body = db.Column(db.Text(), nullable=False)  # Body explaining how you carried out the project
+    
+    # Problems encountered
+    problems_title = db.Column(db.String(150), nullable=False)  # Title of the problems encountered
+    problems_body = db.Column(db.Text(), nullable=False)  # Body explaining the problems encountered
+    
+    # Solutions applied
+    solutions_title = db.Column(db.String(150), nullable=False)  # Title of the solutions applied
+    solutions_body = db.Column(db.Text(), nullable=False)  # Body explaining the solutions applied
+    
+    total_projects = db.Column(db.Integer(), default=150)  # You can edit this value manually
+
+    def __repr__(self):
+        return f'<Project {self.title}>'
 
 
 class Subscribers(db.Model):

@@ -6,7 +6,7 @@ Projects
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -14,7 +14,7 @@ Projects
                     <h1>Our Latest Projects</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
                         <li>Projects</li>
                     </ul>
@@ -31,29 +31,32 @@ Projects
             <h2>We Have Done Many Projects<span>Let’s See Our Works</span></h2>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="project-box-layout1">
-                    <div class="item-img">
-                        <img src="img/project/project1.jpg" alt="project-thumb">
-                        <a href="single-project1.html" class="hover-dot">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title"><a href="single-project1.html">Window Cleaning</a></h3>
-                        <div class="item-tag">
-                            <a href="#">Office,</a>
-                            <a href="#">Home</a>
+            {% for project in projects %}
+                <div class="col-lg-4 col-md-6">
+                    
+                    <div class="project-box-layout1">
+                        <div class="item-img">
+                            <img src="../static/images/project1.png" alt="project-thumb">
+                            <a href="single-project1.html" class="hover-dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="item-content">
+                            <h3 class="item-title"><a href="{{url_for('main.project_detail', token=project['token'])}}">{{project['project'].title}}</a></h3>
+                            <div class="item-tag">
+                                <!-- <a href="#">Office,</a>
+                                <a href="#">Home</a> -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
+            {% endfor %}
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="project-box-layout1">
                     <div class="item-img">
-                        <img src="img/project/project2.jpg" alt="project-thumb">
+                        <img src="../static/images/project2.jpg" alt="project-thumb">
                         <a href="single-project1.html" class="hover-dot">
                             <span></span>
                             <span></span>
@@ -72,7 +75,7 @@ Projects
             <div class="col-lg-4 col-md-6">
                 <div class="project-box-layout1">
                     <div class="item-img">
-                        <img src="img/project/project3.jpg" alt="project-thumb">
+                        <img src="../static/images/project3.jpg" alt="project-thumb">
                         <a href="single-project1.html" class="hover-dot">
                             <span></span>
                             <span></span>
@@ -91,7 +94,7 @@ Projects
             <div class="col-lg-4 col-md-6">
                 <div class="project-box-layout1">
                     <div class="item-img">
-                        <img src="img/project/project4.jpg" alt="project-thumb">
+                        <img src="../static/images/project4.jpg" alt="project-thumb">
                         <a href="single-project1.html" class="hover-dot">
                             <span></span>
                             <span></span>
@@ -110,7 +113,7 @@ Projects
             <div class="col-lg-4 col-md-6">
                 <div class="project-box-layout1">
                     <div class="item-img">
-                        <img src="img/project/project5.jpg" alt="project-thumb">
+                        <img src="../static/images/project5.jpg" alt="project-thumb">
                         <a href="single-project1.html" class="hover-dot">
                             <span></span>
                             <span></span>
@@ -129,7 +132,7 @@ Projects
             <div class="col-lg-4 col-md-6">
                 <div class="project-box-layout1">
                     <div class="item-img">
-                        <img src="img/project/project6.jpg" alt="project-thumb">
+                        <img src="../static/images/project6.jpg" alt="project-thumb">
                         <a href="single-project1.html" class="hover-dot">
                             <span></span>
                             <span></span>
@@ -144,7 +147,7 @@ Projects
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
