@@ -1,19 +1,49 @@
-{% extends "admin/layout.html" %}
-
-{% block content %}
-<div class="row">
-  <div class="col-lg-12">
-    <div class="page-header">
-      <h1>{% block page_header %}{% endblock %}</h1>
-    </div>
-    {% from "macro.html" import render_field %}
-    <form role="form" method="POST" action="{% block action %}{% endblock %}">
-      {{ form.csrf_token }}
-      {{ render_field(form.title) }}
-      {{ render_field(form.markup) }}
-      {{ render_field(form.visible) }}
-      <button class="btn btn-primary" type="submit">{% block submit_name %}{% endblock %}</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog Post</title>
+    <!-- Include CKEditor scripts -->
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+</head>
+<body>
+    <h1>Create a New Blog Post</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}<br>
+            {% for error in form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.body.label }}<br>
+            {{ form.body() }}<br>
+            {% for error in form.body.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.image.label }}<br>
+            {{ form.image() }}<br>
+            {% for error in form.image.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.time.label }}<br>
+            {{ form.time(size=32) }}<br>
+            {% for error in form.time.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
     </form>
-  </div>
-</div>
-{% endblock %}
+    
+    <script>
+        // Initialize CKEditor
+        CKEDITOR.replace('body');
+    </script>
+</body>
+</html>

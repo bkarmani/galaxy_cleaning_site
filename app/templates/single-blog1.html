@@ -14,10 +14,10 @@ blog post detail
                         <h1>{{post.title}}</h1>
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{url_for('main.index')}}">Home</a>
                             </li>
                             <li>
-                                <a href="blog1.html">Blogs</a>
+                                <a href="{{url_for('main.blog_page')}}">Blogs</a>
                             </li>
                             <li>Details</li>
                         </ul>
@@ -34,7 +34,7 @@ blog post detail
                 <div class="col-lg-8">
                     <div class="single-blog-box-layout1">
                         <div class="main-img">
-                            <img src="../static/images/service9.jpg" alt="blog">
+                            <img src="../static/images/{{post.image_url}}" alt="blog">
                         </div>
                         <div class="item-details">
                             <div class="item-date"><i class="fas fa-calendar-alt"></i>{{post.timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
@@ -42,15 +42,15 @@ blog post detail
                             <div class="entry-meta">
                                 <ul>
                                     <li class="item-author">
-                                        <img src="../static/images/author.png" alt="author">
+                                        <img src="../static/images/default_profile_pic.png" alt="author" style="width: 100px; height: 100px; border-radius: 50%;">
                                         By {{post.author}}
                                     </li>
-                                    <li><i class="fas fa-heart"></i><span>06</span> <a href="#">Likes</a></li>
-                                    <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
+                                    <!-- <li><i class="fas fa-heart"></i><span>06</span> <a href="#">Likes</a></li>
+                                    <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li> -->
                                 </ul>
                             </div>
-                            <p>{{post.body}}</p>
-                            <blockquote>
+                            <p>{{post.body|safe}}</p>
+                            <!-- <blockquote>
                                 ” Aimply dummy text of the printing and ustryorem Ipsum 
                                 has been the industry's standard dummy text ever since ”
                                 <div class="post-author">Jessica Mcdade</div>
@@ -60,7 +60,7 @@ blog post detail
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse 
                                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
                                 cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                                anim id est laborum. Sed ut perspiciatis unde omnis iste natus errore.</p>
+                                anim id est laborum. Sed ut perspiciatis unde omnis iste natus errore.</p> -->
                         </div>
                         <!-- <div class="blog-social-area">
                             <div class="row">
@@ -92,7 +92,7 @@ blog post detail
                         <div class="blog-author">
                             <div class="media media-none--sm">
                                 <div class="item-img">
-                                    <img src="../static/images/author.jpg" class="media-img-auto" alt="Lora Zaman">
+                                    <img src="../static/images/default_profile_pic.png" class="media-img-auto" alt="Lora Zaman">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="item-title">{{post.author}}</h3>
@@ -103,9 +103,7 @@ blog post detail
                                         <li><a href="#" class="bg-linked"><i class="fab fa-linkedin-in"></i></a></li>
                                         <li><a href="#" class="bg-gplus"><i class="fab fa-google-plus-g"></i></a></li>
                                     </ul>
-                                    <p>Cagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcry 
-                                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <p>{{post.author.about_me}}</p>
                                 </div>
                             </div>
                         </div>
@@ -266,7 +264,7 @@ blog post detail
                     </div>
                     <div class="widget widget-newsletter">
                         <div class="item-img">
-                            <img src="../static/images/widget.png" alt="mail">
+                            <img src="../static/images/widget-banner.png" alt="mail">
                         </div>
                         <div class="item-content">
                             <h3 class="item-title">Newsletter</h3>

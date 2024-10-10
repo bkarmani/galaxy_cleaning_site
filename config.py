@@ -17,6 +17,8 @@ class Config:
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASKY_POSTS_PER_PAGE = 6
+    FLASKY_TEAM_PER_PAGE = 6
+    CKEDITOR_HEIGHT = 400
 
     MAIL_SERVER = 'smtp-relay.sendinblue.com'
     MAIL_PORT = 2525
@@ -24,6 +26,8 @@ class Config:
     MAIL_PASSWORD = 'wXdEUFyHpqg6b7AJ'
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
+    UPLOAD_FOLDER = os.path.join(basedir,'app', 'static', 'images')  # Set this to your upload directory
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024
 
     @staticmethod
     def init_app(app):

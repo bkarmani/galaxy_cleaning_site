@@ -6,7 +6,7 @@ Our Team
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -14,7 +14,7 @@ Our Team
                     <h1>Hard Working People</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
                         <li>Teams</li>
                     </ul>
@@ -28,26 +28,28 @@ Our Team
 <section class="section-padding-12">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="team-box-layout1">
-                    <div class="item-img">
-                        <img src="img/team/team1.png" alt="team-thumb">
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title"><a href="single-team.html">Richard Powel</a></h3>
-                        <div class="item-subtitle">Office Cleaner</div>
-                        <div class="item-social">
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                            </ul>
+            {% for member in teams%}
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-box-layout1">
+                        <div class="item-img">
+                            <img src="../static/images/team1.png" alt="team-thumb">
+                        </div>
+                        <div class="item-content">
+                            <h3 class="item-title"><a href="{{url_for('main.team_detail', token=member['token'])}}">{{member['team'].first_name}} {{member['team'].last_name}}</a></h3>
+                            <div class="item-subtitle">{{member['team'].role}}</div>
+                            <div class="item-social">
+                                <ul>
+                                    <li><a href="{{member['team'].fb_social}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{member['team'].x_social}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{member['team'].lkdn_social}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="{{member['team'].pin_social}}"><i class="fab fa-pinterest"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
+            {% endfor %}
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="team-box-layout1">
                     <div class="item-img">
                         <img src="img/team/team2.png" alt="team-thumb">
@@ -65,8 +67,8 @@ Our Team
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
+            </div> -->
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="team-box-layout1">
                     <div class="item-img">
                         <img src="img/team/team3.png" alt="team-thumb">
@@ -198,15 +200,30 @@ Our Team
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="pagination-layout1 text-center pd-t-50">
-            <ul>
-                <li><a href="#" class="nav-item active">1</a></li>
-                <li><a href="#" class="nav-item">2</a></li>
-                <li><a href="#" class="nav-item">3</a></li>
-                <li><a href="#" class="nav-item">4</a></li>
-            </ul>
+        <div class="pagination-layout1 text-center pt-5" style="display: flex; justify-content: center;">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item {%if not pagination.has_prev%} disabled {%endif%}">
+                    <a class="page-link" href="./?page={{pagination.prev_num}}">&laquo;</a>
+                    </li>
+                    {% for p in pagination.iter_pages() %}
+                        {%if p%}
+                            <li class="page-item {% if p == pagination.page %}active{%endif%}">
+                                <a class="page-link" href="./?page={{p}}">{{p}}</a>
+                            </li>
+                        {%else%}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">&hellip;</a>
+                        </li>
+                        {%endif%}
+                    {% endfor %}
+                    <li class="page-item {%if not pagination.has_next%} disabled {%endif%}">
+                    <a class="page-link" href="./?page={{pagination.next_num}}">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </section>

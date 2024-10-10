@@ -6,7 +6,7 @@ Our Team Member
 
 {% block content %}
 <!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner bg-common" data-bg-image="img/figure/breadcumb.jpg">
+<section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -14,9 +14,9 @@ Our Team Member
                     <h1>Hard Working People</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
-                        <li>Teams</li>
+                        <li>Team Member</li>
                     </ul>
                 </div>
             </div>
@@ -31,40 +31,32 @@ Our Team Member
            <div class="col-lg-4 no-equal-item">
                <div class="single-team-layout1">
                    <div class="item-img">
-                        <img src="img/team/team4.png" alt="team-member">
+                        <img src="../static/images/team1.png" alt="team-member">
                    </div>
                </div>
            </div>
            <div class="col-lg-8 no-equal-item">
                <div class="single-team-layout1">
                    <div class="item-content">
-                       <h2 class="item-title">Richard Powel</h2>
-                       <div class="item-subtitle">Office Cleaner</div>
+                       <h2 class="item-title">{{team.first_name}} {{team.last_name}}</h2>
+                       <div class="item-subtitle">{{team.role}}</div>
                        <div class="item-contact-info">
                            <ul>
-                               <li><i class="flaticon-call-answer"></i><span>Phone:</span> (+123) 8900 8900; (+123) 8900 8900</li>
-                               <li><i class="flaticon-maps-and-flags"></i><span>Address:</span> 59 Street, Newyorkcity</li>
-                               <li><i class="flaticon-message"></i><span>E-mail:</span> info@clenix.com</li>
+                               <li><i class="flaticon-call-answer"></i><span>Phone:</span> {{team.phone}}</li>
+                               <li><i class="flaticon-maps-and-flags"></i><span>Address:</span> {{team.address}}</li>
+                               <li><i class="flaticon-message"></i><span>E-mail:</span> {{team.email}}</li>
                                <li class="item-social">
                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        <li><a href="{{team.fb_social}}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="{{team.x_social}}"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="{{team.lkdn_social}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="{{team.pin_social}}"><i class="fab fa-pinterest"></i></a></li>
                                    </ul>
                                </li>
                            </ul>
                        </div>
-                       <div class="about-us">About Me</div>
-                       <p>Ahen an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                           It has survived not only five centuries, but also the leap into electronic typesetting, 
-                           remaining essentially unchanged. It was popularised in the 1960s with the release of 
-                           Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
-                           software like Aldus PageMaker including versions of LoremAhen an unknown printer took a galley 
-                           of type and scrambled it to make a type specimen book. It has survived not only five centuries
-                           , but also the leap into electronic typesetting, remaining essentially unchanged. It was 
-                           popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                           and more recently with desktop publishing software like Alduse. </p>
+                       <div class="about-us">About {{team.first_name}}</div>
+                       <p>{{team.about_me}} </p>
                    </div>
                </div>
            </div>
@@ -73,7 +65,7 @@ Our Team Member
                     <div class="heading-layout4">
                         <h4>Have you Any Question?</h4>
                     </div>
-                    <form class="contact-form-box" id="contact-form">
+                    <form class="contact-form-box" method="POST" action="{{url_for('main.message_us')}}">
                         <div class="row">
                             <div class="col-12 form-group">
                                 <div class="form-icon"><i class="fas fa-user"></i></div>
@@ -92,12 +84,12 @@ Our Team Member
                             </div>
                             <div class="col-12 form-group">
                                 <div class="form-icon"><i class="fas fa-question"></i></div>
-                                <input type="text" placeholder="Subject" class="form-control" name="phone" data-error="Phone field is required" required>
+                                <input type="text" placeholder="Subject" class="form-control" name="subject" data-error="Phone field is required" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-12 form-group">
                                 <div class="form-icon"><i class="far fa-comments"></i></div>
-                                <textarea placeholder="Address" class="textarea form-control" name="message" id="form-message" rows="4" cols="20" 
+                                <textarea placeholder="Message" class="textarea form-control" name="message" id="form-message" rows="4" cols="20" 
                                 data-error="Message field is required" required></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>

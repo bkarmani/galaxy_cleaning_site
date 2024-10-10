@@ -1,7 +1,7 @@
 import os
 from app import create_app, db
 from flask_migrate import Migrate
-from app.models import Projects, User, Post, Comment
+from app.models import Projects, User, Post
 from dotenv import load_dotenv
 # from app.scheduler import start_scheduler
 
@@ -14,4 +14,4 @@ migrate = Migrate(app, db)
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, Projects=Projects, User=User, Post=Post, Comment=Comment)
+    return dict(db=db, Projects=Projects, User=User, Post=Post)

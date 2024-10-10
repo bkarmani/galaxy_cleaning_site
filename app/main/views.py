@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template, request, current_app, redirect, flash, abort, url_for
-from app.models import Projects, Post, Subscribers
+from app.models import Projects, Post, Subscribers, TeamMember
 from .forms import QuotesForm
 import os,re
 from app import db
@@ -52,7 +52,7 @@ def truncate_body(text, num_words=20):
 def index():
     form = QuotesForm()
     record = Projects.query.first()
-    projects = record.total_projects
+    # projects = record.total_projects
 
     posts = Post.query.order_by(Post.timestamp.desc()).limit(3).all()
     hashed_posts = [
@@ -79,7 +79,7 @@ def index():
         flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
         return redirect(url_for('main.index'))
 
-    return render_template('index.html', total_projects=projects, recent_posts=hashed_posts, form=form)
+    return render_template('index.html', recent_posts=hashed_posts, form=form)
 
 
 @main.route('/about')
@@ -163,21 +163,49 @@ def specialized():
 
 
 
-# @main.route('/team/members')
-# def teams_page():
-#     return render_template('team1.html')
+@main.route('/team/', methods=['GET', 'POST'])
+def teams_page():
+    # Get the search query from the request
+    query = request.args.get('query', '', type=str)
+    page = request.args.get('page', 1, type=int)
 
-# @main.route('/team/members/<int:num>')
-# def team1(num):
-#     return render_template('single-team1.html', num=num)
+    # Filter posts based on the search query if provided
+    if query:
+        pagination = TeamMember.query.filter(TeamMember.first_name.ilike(f'%{query}%')).order_by(TeamMember.id.desc()).paginate(
+            page=page, per_page=current_app.config['FLASKY_TEAM_PER_PAGE'], error_out=False
+        )
+    else:
+        # If no query, just get the latest posts
+        pagination = TeamMember.query.order_by(TeamMember.id.desc()).paginate(
+            page=page, per_page=current_app.config['FLASKY_TEAM_PER_PAGE'], error_out=False
+        )
 
-# @main.route('/team/members/<int:num>')
+    
+    hashed_team=[
+        {"token": s.dumps(team.id), "team": team} for team in pagination.items
+    ]
+    return render_template('team1.html', pagination=pagination, teams=hashed_team, query=query)
+
+@main.route('/team/<string:token>')
+def team_detail(token): 
+    teams = TeamMember.query.order_by(TeamMember.id.desc()).all()
+    hashed_team = [
+        {"token": s.dumps(team.id), "team": team} for team in teams
+    ]
+    try:  
+        team_id = s.loads(token)        
+        team = TeamMember.query.get_or_404(team_id)
+    except BadSignature:
+        abort(404)
+    return render_template('single-team1.html', hashed_team_members=hashed_team, team=team )
+
+# @main.route('/team/<int:num>')
 # def team2(num):
 #     return render_template('single-team2.html', num=num)
 
-# @main.route('/team/members/<int:num>')
+# @main.route('/team/<int:num>')
 # def team3(num):
-    return render_template('single-team3.html', num=num)
+#     return render_template('single-team3.html', num=num)
 
 @main.route('/blog/', methods=['GET', 'POST'])
 def blog_page():
@@ -268,9 +296,9 @@ def service_details():
     return render_template('service-details.html')
 
 
-@main.route('/team')
-def team():
-    return render_template('team.html')
+# @main.route('/team')
+# def team():
+#     return render_template('team.html')
 
 
 @main.route('/testimonials')

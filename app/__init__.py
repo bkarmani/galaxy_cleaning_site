@@ -5,14 +5,19 @@ from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from flask_login import LoginManager
+from flask_ckeditor import CKEditor
+import pymysql
+
 
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 email = Mail()
 time = Moment()
+ckeditor = CKEditor()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
+pymysql.install_as_MySQLdb()
 
 
 def create_app(config_name):
@@ -24,6 +29,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
     email.init_app(app)
     login_manager.init_app(app)
+    ckeditor.init_app(app)
 
     # blueprpints
     from .main import main as main_blueprint

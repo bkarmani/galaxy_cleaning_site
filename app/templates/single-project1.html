@@ -43,10 +43,10 @@ Projects
                         data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true"
                         data-r-extra-large-dots="false">
                             <div class="slide-item">
-                                <img src="img/project/project7.jpg" alt="project">
+                                <img src="../static/images/project1.png" alt="project">
                             </div>
                             <div class="slide-item">
-                                <img src="img/project/project8.jpg" alt="project">
+                                <img src="../static/images/project1.png" alt="project">
                             </div>
                         </div>
                     </div>
@@ -88,14 +88,14 @@ Projects
                         <h3>Project Information</h3>
                     </div>
                     <div class="project-details">
-                        <p>when an unknown printer took a galley of  type and scrambled</p>
+                        <p>{{project.execution_title}}</p>
                         <ul>
-                            <li><span>Category</span>Office Cleaning</li>
-                            <li><span>Client</span>RadiusTheme</li>
-                            <li><span>Start</span>22.05.2019</li>
-                            <li><span>End</span>01.06.2019</li>
-                            <li><span>Website</span>www.clenix.com</li>
-                            <li><span>Rating</span> 
+                            <li><span>Category</span>{{project.category}}</li>
+                            <li><span>Client</span>{{project.client}}</li>
+                            <li><span>Start</span>{{project.start}}</li>
+                            <li><span>End</span>{{project.ended}}</li>
+                            <!-- <li><span>Website</span>www.clenix.com</li> -->
+                            <!-- <li><span>Rating</span> 
                                 <ul class="item-rating">
                                     <li><i class="fas fa-star"></i></li>
                                     <li><i class="fas fa-star"></i></li>
@@ -103,7 +103,7 @@ Projects
                                     <li><i class="fas fa-star"></i></li>
                                     <li><i class="fas fa-star"></i></li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ Projects
                     <ul class="recent-post-list">
                         {% for recent_post in recent_posts%}
                         <li>
-                            <div class="post-date"><i class="far fa-clock"></i> 14 July, 2019</div>
+                            <div class="post-date"><i class="far fa-clock"></i>{{recent_post['post'].timestamp.strftime('%B %d, %Y, %I:%M %p')}}</div>
                             <h6 class="item-title"><a href="{{url_for('main.blog_detail', token=recent_post['token'])}}">{{recent_post['post'].title}}</a></h6>
                         </li>
                         {% endfor %}
@@ -134,7 +134,7 @@ Projects
                     </div>
                     <div class="item-content">
                         <h2 class="item-title"><span>30</span>% Discount</h2>
-                        <div class="item-subtitle">Promotion Offer 16 Days</div>
+                        <div class="item-subtitle">Promotion Offer comming soon</div>
                         <a href="#" class="fw-btn-fill bg-accent text-primarytext">Contact With US</a>
                     </div>
                 </div>

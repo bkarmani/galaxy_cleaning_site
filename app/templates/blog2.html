@@ -32,7 +32,7 @@ Our Blog
                 {%for hashed_post in hashed_posts%}
                 <div class="blog-box-layout1">
                     <div class="item-img">
-                        <a href="url_for('main.blog_detail')"><img src="../static/images/blog9.jpg" alt="blog-thumb"></a>
+                        <a href="url_for('main.blog_detail')"><img src="../static/images/{{hashed_post['post'].image_url}}" alt="blog-thumb"></a>
                     </div>
                     
                     <div class="item-content">
@@ -41,13 +41,13 @@ Our Blog
                         
                         <h2 class="item-title"><a href="{{url_for('main.blog_detail', token=hashed_post['token'])}}">{{hashed_post['post'].title}}</a></h2>
                         
-                        <p>{{hashed_post['post'].body}}</p>
+                        <p>{{hashed_post['post'].body|truncate_body(20)|safe}}</p>
                         
                         <div class="entry-meta-2">
                             <ul>
                                 <li class="item-author">By {{hashed_post['post'].author}}</li>
-                                <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
-                                <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li>
+                                <!-- <li><i class="fas fa-heart"></i><span>06</span> Likes</li>
+                                <li><i class="fas fa-comment"></i><span>02</span> <a href="#">Comments</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ Our Blog
                         </div>
                     </div>
                 </div> -->
-                <div class="pagination-layout1 text-center pt-5">
+                <div class="pagination-layout1 text-center pt-5" style="display: flex; justify-content: center;">
                     <nav aria-label="...">
                         <ul class="pagination">
                             <li class="page-item {%if not pagination.has_prev%} disabled {%endif%}">
@@ -163,7 +163,7 @@ Our Blog
                             <li>
                                 <a href="#"><i class="flaticon-right-arrow"></i>Green Cleaning</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#"><i class="flaticon-right-arrow"></i>Moving Cleaning</a>
                             </li>
                             <li>
@@ -174,7 +174,7 @@ Our Blog
                             </li>
                             <li>
                                 <a href="#"><i class="flaticon-right-arrow"></i>Spring Cleaning</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -201,7 +201,7 @@ Our Blog
                 </div>
                 <div class="widget widget-newsletter">
                     <div class="item-img">
-                        <img src="../static/images/widget.png" alt="mail">
+                        <img src="../static/images/widget-banner.png" alt="mail">
                     </div>
                     <div class="item-content">
                         <h3 class="item-title">Newsletter</h3>
