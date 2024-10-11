@@ -33,7 +33,7 @@ def dashboard():
 
 
 @admin.route('/postblog', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def post_blog():
     form = BlogPostForm()
     if form.validate_on_submit():
