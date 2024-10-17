@@ -159,6 +159,10 @@ def sanitize():
 def specialized():
     return render_template('specialized.html')
 
+@main.route('/service/recruitment')
+def recruitment():
+    return render_template('recruitment.html')
+
 # -- end of all services --
 
 

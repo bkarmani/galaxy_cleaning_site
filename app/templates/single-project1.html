@@ -43,21 +43,25 @@ Projects
                         data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true"
                         data-r-extra-large-dots="false">
                             <div class="slide-item">
-                                <img src="../static/images/project1.png" alt="project">
+                                <img src="../static/images/{{project.image1_url}}" alt="project">
                             </div>
                             <div class="slide-item">
-                                <img src="../static/images/project1.png" alt="project">
+                                <img src="../static/images/{{project.image2_url}}" alt="project">
                             </div>
                         </div>
                     </div>
                     <div class="single-project-info">
                         <div class="item-content">
-                            <h3 class="item-title">{{project.execution_title}}</h3>
-                            <p>{{project.execution_body}}</p>
+                            <h3 class="item-title">{{project.title}}</h3>
+                            <p>{{project.introduction|safe}}</p>
                         </div>
                         <div class="item-content">
-                            <h3 class="item-title">{{project.problems_title}}</h3>
-                            <p>{{project.problems_body}}</p>
+                            <h3 class="item-title">Project Execution</h3>
+                            <p><p><h4>{{project.execution_title}}</h4></p>{{project.execution_body|safe}}</p>
+                        </div>
+                        <div class="item-content">
+                            <h3 class="item-title">Problems Encountered</h3>
+                            <p><h4>{{project.problems_title}}</h4> <p>{{project.problems_body|safe}}</p></p>
                             <!-- <ul class="list-item">
                                 <li><i class="fas fa-check"></i>Increasing revenue growth in 2019</li>
                                 <li><i class="fas fa-check"></i>Enabling greater selling</li>
@@ -68,16 +72,16 @@ Projects
                         </div>
                         <div class="item-content">
                             <h3 class="item-title">Solutions</h3>
-                            <p>Ahen an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged.</p>
-                            <ul class="list-item">
+                            <p><h4>{{project.solutions_title}}</h4> <p>
+                                {{project.solutions_body |safe}}
+                            </p></p>
+                            <!-- <ul class="list-item">
                                 <li><i class="fas fa-check"></i>Increasing revenue growth in 2019</li>
                                 <li><i class="fas fa-check"></i>Enabling greater selling</li>
                                 <li><i class="fas fa-check"></i>Improving compliance reporting</li>
                                 <li><i class="fas fa-check"></i>Increasing revenue growth in 2019</li>
                                 <li><i class="fas fa-check"></i>Enabling greater selling</li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
@@ -88,12 +92,12 @@ Projects
                         <h3>Project Information</h3>
                     </div>
                     <div class="project-details">
-                        <p>{{project.execution_title}}</p>
+                        <p><h4>{{project.title}}</h4></p>
                         <ul>
                             <li><span>Category</span>{{project.category}}</li>
                             <li><span>Client</span>{{project.client}}</li>
-                            <li><span>Start</span>{{project.start}}</li>
-                            <li><span>End</span>{{project.ended}}</li>
+                            <li><span>Start</span>{{project.start.strftime('%B %d, %Y, %I:%M %p')}}</li>
+                            <li><span>End</span>{{project.ended.strftime('%B %d, %Y, %I:%M %p')}}</li>
                             <!-- <li><span>Website</span>www.clenix.com</li> -->
                             <!-- <li><span>Rating</span> 
                                 <ul class="item-rating">
@@ -135,7 +139,7 @@ Projects
                     <div class="item-content">
                         <h2 class="item-title"><span>30</span>% Discount</h2>
                         <div class="item-subtitle">Promotion Offer comming soon</div>
-                        <a href="#" class="fw-btn-fill bg-accent text-primarytext">Contact With US</a>
+                        <a href="#" class="fw-btn-fill bg-accent text-primarytext">Contact US</a>
                     </div>
                 </div>
            </div>

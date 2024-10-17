@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CKEditor Integration -->
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Submit a New Project</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            <!-- Project Title -->
+            <div class="mb-3">
+                {{ form.title.label(class="form-label") }}
+                {{ form.title(class="form-control", placeholder="Enter project title") }}
+                {% if form.title.errors %}
+                    <div class="text-danger">{{ form.title.errors[0] }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Project Category -->
+            <div class="mb-3">
+                {{ form.category.label(class="form-label") }}
+                {{ form.category(class="form-control", placeholder="Enter project category") }}
+                {% if form.category.errors %}
+                    <div class="text-danger">{{ form.category.errors[0] }}</div>
+                {% endif %}
+            </div>
+            
+            <!-- Project Client -->
+            <div class="mb-3">
+                {{ form.client.label(class="form-label") }}
+                {{ form.client(class="form-control", placeholder="Enter project client") }}
+                {% if form.client.errors %}
+                    <div class="text-danger">{{ form.client.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Project Start and End Dates -->
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form.start.label(class="form-label") }}
+                    {{ form.start(class="form-control") }}
+                    {% if form.start.errors %}
+                        <div class="text-danger">{{ form.start.errors[0] }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form.ended.label(class="form-label") }}
+                    {{ form.ended(class="form-control") }}
+                    {% if form.ended.errors %}
+                        <div class="text-danger">{{ form.ended.errors[0] }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Introduction Body -->
+            <div class="mb-3">
+                {{ form.introduction.label(class="form-label") }}
+                {{ form.introduction(class="form-control", rows="4") }}
+                {% if form.introduction.errors %}
+                    <div class="text-danger">{{ form.introduction.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Execution Section -->
+            <h3 class="mt-4">Execution</h3>
+            <div class="mb-3">
+                {{ form.execution_title.label(class="form-label") }}
+                {{ form.execution_title(class="form-control", placeholder="Enter execution title") }}
+                {% if form.execution_title.errors %}
+                    <div class="text-danger">{{ form.execution_title.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.execution_body.label(class="form-label") }}
+                {{ form.execution_body(class="form-control", rows="4") }}
+                {% if form.execution_body.errors %}
+                    <div class="text-danger">{{ form.execution_body.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Problems Section -->
+            <h3 class="mt-4">Problems</h3>
+            <div class="mb-3">
+                {{ form.problems_title.label(class="form-label") }}
+                {{ form.problems_title(class="form-control", placeholder="Enter problems title") }}
+                {% if form.problems_title.errors %}
+                    <div class="text-danger">{{ form.problems_title.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.problems_body.label(class="form-label") }}
+                {{ form.problems_body(class="form-control", rows="4") }}
+                {% if form.problems_body.errors %}
+                    <div class="text-danger">{{ form.problems_body.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Solutions Section -->
+            <h3 class="mt-4">Solutions</h3>
+            <div class="mb-3">
+                {{ form.solutions_title.label(class="form-label") }}
+                {{ form.solutions_title(class="form-control", placeholder="Enter solutions title") }}
+                {% if form.solutions_title.errors %}
+                    <div class="text-danger">{{ form.solutions_title.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.solutions_body.label(class="form-label") }}
+                {{ form.solutions_body(class="form-control", rows="4") }}
+                {% if form.solutions_body.errors %}
+                    <div class="text-danger">{{ form.solutions_body.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Total Projects -->
+            <div class="mb-3">
+                {{ form.total_projects.label(class="form-label") }}
+                {{ form.total_projects(class="form-control", placeholder="Enter total number of projects") }}
+                {% if form.total_projects.errors %}
+                    <div class="text-danger">{{ form.total_projects.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Image Uploads -->
+            <div class="mb-3">
+                {{ form.image1.label(class="form-label") }}
+                {{ form.image1(class="form-control") }}
+                {% if form.image1.errors %}
+                    <div class="text-danger">{{ form.image1.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.image2.label(class="form-label") }}
+                {{ form.image2(class="form-control") }}
+                {% if form.image2.errors %}
+                    <div class="text-danger">{{ form.image2.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Submit Project</button>
+        </form>
+    </div>
+
+    <!-- CKEditor Integration -->
+    <script>
+        CKEDITOR.replace('introduction');
+        CKEDITOR.replace('execution_body');
+        CKEDITOR.replace('problems_body');
+        CKEDITOR.replace('solutions_body');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

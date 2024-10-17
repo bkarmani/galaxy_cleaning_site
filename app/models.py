@@ -163,7 +163,8 @@ class Projects(db.Model):
     solutions_body = db.Column(db.Text(), nullable=False)  # Body explaining the solutions applied
     
     total_projects = db.Column(db.Integer(), default=150)  # You can edit this value manually
-    image_url = db.Column(db.String(255))
+    image1_url = db.Column(db.String(255))
+    image2_url = db.Column(db.String(255))
     def __repr__(self):
         return f'<Project {self.title}>'
     
