@@ -8,7 +8,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
-@admin.route('//')
+@admin.route('/')
 @login_required
 def dashboard():
     form = BlogPostForm()
@@ -69,6 +69,12 @@ def post_blog():
         flash('Post created successfully!', 'success')
         return redirect(url_for('admin.post_blog'))
     return render_template('admin/post/post.html', form=form)
+
+@admin.route('/posts')
+@login_required
+def posts():
+    posts = Post.query.all()
+    return render_template('admin/post/posts.html', posts=posts)
 
 
 

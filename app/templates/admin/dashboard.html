@@ -6,10 +6,10 @@
       <!-- Sidebar (Visible on larger screens) -->
       <div class="list-group mb-4">
         <a href="#" class="list-group-item list-group-item-action">Subscribers</a>
-        <a href="#" class="list-group-item list-group-item-action">Projects</a>
+        <a href="{{url_for('admin.create_projects')}}" class="list-group-item list-group-item-action">Projects</a>
         <a href="#" class="list-group-item list-group-item-action">Team</a>
-        <a href="#" class="list-group-item list-group-item-action">Add Blog Post</a>
-        <a href="#" class="list-group-item list-group-item-action">Posts</a>
+        <a href="{{url_for('admin.post_blog')}}" class="list-group-item list-group-item-action">Add Blog Post</a>
+        <a href="{{url_for('admin.posts')}}" class="list-group-item list-group-item-action">Posts</a>
       </div>
     </div>
     <div class="col-md-9 col-sm-12">
