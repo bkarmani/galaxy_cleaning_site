@@ -14,7 +14,7 @@ Our Blog
                     <h1>Our Latest Blogs</h1>
                     <ul>
                         <li>
-                            <a href="url_for('main.index')">Home</a>
+                            <a href="{{url_for('main.index')}}">Home</a>
                         </li>
                         <li>Blogs</li>
                     </ul>
@@ -32,7 +32,7 @@ Our Blog
                 {%for hashed_post in hashed_posts%}
                 <div class="blog-box-layout1">
                     <div class="item-img">
-                        <a href="url_for('main.blog_detail')"><img src="../static/images/{{hashed_post['post'].image_url}}" alt="blog-thumb"></a>
+                        <a href="{{url_for('main.blog_detail')}}"><img src="../static/images/{{hashed_post['post'].image_url}}" alt="blog-thumb"></a>
                     </div>
                     
                     <div class="item-content">
