@@ -1,5 +1,5 @@
 from . import main
-from flask import render_template, request, current_app, redirect, flash, abort, url_for
+from flask import render_template,render_template_string,send_from_directory, request, current_app, redirect, flash, abort, url_for, Response
 from app.models import Projects, Post, Subscribers, TeamMember
 from .forms import QuotesForm
 import os,re
@@ -7,29 +7,8 @@ from app import db
 from itsdangerous import URLSafeSerializer, BadSignature
 
 
-# @main.app_context_processor
-# def inject_api():
-#     return dict(google_maps_api_key="AIzaSyCUoE5ByYXVku3UhXqwf_XO_lY0-FnCjb4")
-# Global variable to track the total projects done
 
 
-
-# Function to increment the project count
-# def increment_projects_done():
-#     with app.app_context():
-#         old_record = Projects.query.first()
-#         if old_record:
-#             old_record.number_of_projects += 1
-#             db.session.commit()
-#     print(f"Total projects done: {old_record}")
-
-# # Initialize the scheduler outside the route so it's not initialized on every request
-# scheduler = BackgroundScheduler()
-# scheduler.add_job(func=increment_projects_done, trigger="interval", minutes=1)  # Run every minute
-# scheduler.start()
-
-# Shut down the scheduler when exiting the app
-# atexit.register(lambda: scheduler.shutdown())
 
 s = URLSafeSerializer('kjhcdgucbgudxusdyytctcdxyv')
 
@@ -38,12 +17,55 @@ def is_valid_email(email):
     return re.match(pattern, email) is not None
 
 
+
 @main.app_template_filter('truncate_body')
 def truncate_body(text, num_words=20):
     words = text.split()
     if len(words) > num_words:
         return ' '.join(words[:num_words]) + '...'
     return text
+
+@main.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    urls = [
+        {'loc': url_for('main.index',_external=True)},
+        {'loc': url_for('main.about_page',_external=True)},
+        {'loc': url_for('main.services_page',_external=True)},
+        {'loc': url_for('main.residential',_external=True)},
+        {'loc': url_for('main.commercial',_external=True)},
+        {'loc': url_for('main.car_wash',_external=True)},
+        {'loc': url_for('main.custom_clean',_external=True)},
+        {'loc': url_for('main.green_clean',_external=True)},
+        {'loc': url_for('main.sanitize',_external=True)},
+        {'loc': url_for('main.specialized',_external=True)},
+        {'loc': url_for('main.recruitment',_external=True)},
+        {'loc': url_for('main.blog_page',_external=True)},
+        {'loc': url_for('main.blog_detail', token='',_external=True)},
+        {'loc': url_for('main.projects_page',_external=True)},
+        {'loc': url_for('main.project_detail',token='',_external=True)},
+        {'loc': url_for('main.contact',_external=True)},
+        {'loc': url_for('main.privacy',_external=True)},
+        {'loc': url_for('main.terms_of_service',_external=True)}
+        # ... other URLs
+    ]
+    sitemap_xml = render_template_string(
+        """<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            {% for url in urls %}
+            <url>
+                <loc>{{ url['loc']|safe }}</loc>
+            </url>
+            {% endfor %}
+        </urlset>
+        """,
+        urls=urls
+    )
+    return Response(sitemap_xml, mimetype='application/xml')
+
+@main.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(current_app.static_folder, 'robots.txt')
+
 
 
 @main.route('/index', methods=['GET', 'POST'])
@@ -203,13 +225,6 @@ def team_detail(token):
         abort(404)
     return render_template('single-team1.html', hashed_team_members=hashed_team, team=team )
 
-# @main.route('/team/<int:num>')
-# def team2(num):
-#     return render_template('single-team2.html', num=num)
-
-# @main.route('/team/<int:num>')
-# def team3(num):
-#     return render_template('single-team3.html', num=num)
 
 @main.route('/blog/', methods=['GET', 'POST'])
 def blog_page():
@@ -295,8 +310,8 @@ def message_us():
     return redirect(request.referrer)
 
 
-@main.route('/services/service_details')
-def service_details():
+# @main.route('/services/service_details')
+# def service_details():
     return render_template('service-details.html')
 
 
@@ -304,10 +319,6 @@ def service_details():
 # def team():
 #     return render_template('team.html')
 
-
-@main.route('/testimonials')
-def testimonials():
-    return render_template('testimonials.html')
 
 
 @main.route('/privacy')

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Not Found
+{% endblock %}
+
+{% block content %}
+        <!-- Inne Page Banner Area Start Here -->
+        <section class="inner-page-banner bg-common" data-bg-image="../static/images/breadcumb.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs-area">
+                            <h1>Error Page</h1>
+                            <ul>
+                                <li>
+                                    <a href="{{url_for('main.index')}}">Home</a>
+                                </li>
+                                <li>500</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Inne Page Banner Area End Here -->
+        <!-- Team Area Start Here -->
+        <section class="section-padding-12 bg-dark-lg">
+            <div class="container">
+                <div class="col-lg-12">
+                    <div class="error-box-layout1" data-bg-image="../static/images/404-bg.png" >
+                        <div class="error-logo">
+                            <img src="../static/images/404.png" alt="404">
+                        </div>
+                        <h2 class="item-title">Sorry! Page Was Not Found</h2>
+                        <p>The page you are looking is not available or has been removed.
+                            Try going to Home Page by using the button below.</p>
+                        <a href="{{url_for('main.index')}}" class="item-btn">GO HOME PAGE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Team Area End Here -->
+        {% endblock %}

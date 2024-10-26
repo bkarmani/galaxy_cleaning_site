@@ -30,6 +30,7 @@ def create_app(config_name):
     email.init_app(app)
     login_manager.init_app(app)
     ckeditor.init_app(app)
+    
 
     # blueprpints
     from .main import main as main_blueprint

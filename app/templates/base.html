@@ -11,7 +11,9 @@
         {% endblock %}
     </title>
     
-    <meta name="description" content="">
+    
+    <meta name="description" content="{% block description %}Default description{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}Default, Keywords{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.png">
