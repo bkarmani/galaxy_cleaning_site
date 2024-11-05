@@ -93,7 +93,7 @@ class QuotesForm(FlaskForm):
         'no of pets', 
         validators=[
             DataRequired(),
-            NumberRange(min=1, message="Please enter a positive number.")
+            NumberRange(min=0, message="Please enter a positive number.")
         ]
     )
 
