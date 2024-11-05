@@ -370,16 +370,18 @@ def message_us():
         comment = message
 
         # Call the function to send the message with reply_to set to the user's email
-        send_message_us(
-            mail_subject,
-            sender,
-            recipient,
-            user_template,
-            msg=comment,
-            customer_name=name,
-            customer_phone=phone
-        )
-
+        try:
+            send_message_us(
+                mail_subject,
+                sender,
+                recipient,
+                user_template,
+                msg=comment,
+                customer_name=name,
+                customer_phone=phone
+            )
+        except Exception as e:
+            flash(f'{e}: unable to send', category='error')
         flash('Thank you for messaging us, we will get back to you shortly', category='success')
     return redirect(request.referrer)
 
