@@ -6,12 +6,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'khvjchlsknbvyuqw99'
-    # MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.yandex.ru')
-    # MAIL_PORT = int(os.environ.get('MAIL_PORT', '465'))
-    # MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in \
-    # ['true', 'on', '1']
-    # MAIL_USERNAME = os.environ.get('MAIL_USERNAME') #or 'bkarmani@yandex.com'
-    # MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') #or 'qykibhyehkujqfzl'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
@@ -20,12 +14,13 @@ class Config:
     FLASKY_TEAM_PER_PAGE = 6
     CKEDITOR_HEIGHT = 400
 
-    MAIL_SERVER = 'smtp-relay.sendinblue.com'
-    MAIL_PORT = 2525
-    MAIL_USERNAME = 'sales@primelectron.com'
-    MAIL_PASSWORD = 'wXdEUFyHpqg6b7AJ'
-    MAIL_USE_TLS = True
-    MAIL_USE_SSL = False
+    MAIL_SERVER = 'smtp.zoho.com'
+    MAIL_PORT = 465
+    MAIL_USERNAME = 'benjaminozor@gmail.com'
+    MAIL_PASSWORD = 'Maxkalba200_##'
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    MAIL_DEFAULT_SENDER = ('Galaxy Cleaning', os.getenv('MY_EMAIL'))
     UPLOAD_FOLDER = os.path.join(basedir,'app', 'static', 'images')  # Set this to your upload directory
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
 

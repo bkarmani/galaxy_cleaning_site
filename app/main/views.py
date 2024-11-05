@@ -5,6 +5,7 @@ from .forms import QuotesForm
 import os,re
 from app import db
 from itsdangerous import URLSafeSerializer, BadSignature
+from ..emails import send_email, send_message_us
 
 
 
@@ -80,26 +81,68 @@ def index():
     hashed_posts = [
         {"token": s.dumps(post.id), "post": post} for post in posts
     ]
-    if form.validate_on_submit():
-        form_data = {
-            'name':form.name.data,
-            'email' : form.email.data,
-            'phone_num' : form.phone.data,
-            'address' : form.address.data,
-            'comments' : form.comments.data,
-            'selected_service' : form.cleaning_service,
-            'date' : form.date.data,
-            'time' : form.time.data,
-            'zipcode' : form.zip_code.data,
-            'budget' : form.budget.data,
-            'approx_sf' : form.approx_sf.data,
-            'property_type' : form.property_type.data
-        }
-        # send email algor
-
-        # notify user of success
-        flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
-        return redirect(url_for('main.index'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            form_data = {
+                'name':form.name.data,
+                'email' : form.email.data,
+                'phone_num' : form.phone.data,
+                'address' : form.address.data,
+                'comments' : form.comments.data,
+                'selected_service' : form.cleaning_service,
+                'date' : form.date.data,
+                'time' : form.time.data,
+                'zipcode' : form.zip_code.data,
+                'pet_count': form.pet_count.data,
+                'budget' : form.budget.data,
+                'approx_sf' : form.approx_sf.data
+            }
+            # send email to owner
+            subject = 'Quotes Confirmation'
+            recipient = form_data['email']
+            owner = os.getenv('MY_EMAIL')
+            sender = os.getenv('MY_EMAIL')
+            owner_template = 'emails/notify-owner'
+            customer_template = 'emails/customer-quote-confirmation'
+            #send notification email to owner
+            try:
+                send_email(
+                    subject,
+                    sender, 
+                    owner, 
+                    owner_template, 
+                    email=form_data['email'], 
+                    customer_name=form_data['name'],  
+                    phone_number=form_data['phone_num'], 
+                    comments=form_data['comments'],
+                    address=form_data['address'],
+                    chosen_service=form_data['selected_service'],
+                    date=form_data['date'],
+                    time=form_data['time'],
+                    zipcode=form_data['zipcode'],
+                    pets=form_data['pet_count'],
+                    budget=form_data['budget'],
+                    property_size=form_data['approx_sf']
+                )
+            except Exception as err:
+                print(f'{err}: quotes could not be sent at the moment')
+            # send notification email to user
+            try:
+                send_email(
+                    subject,
+                    sender, 
+                    recipient, 
+                    customer_template,
+                    customer_name=form_data['name']
+                )
+            except Exception as e:
+                print(e)
+                
+            # notify user of success
+            flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
+            return redirect(url_for('main.index'))
+        else:
+            flash('Please correct the errors below and try again.', category='error')
 
     return render_template('index.html', recent_posts=hashed_posts, form=form)
 
@@ -127,17 +170,31 @@ def subscribe_user():
             user = Subscribers(email=email)
             db.session.add(user)
             db.session.commit()
-            # print('you have subscribed successfully')
-            # subscribe_user(email, 
-            #             'electron@sandboxa7f55fb25a5444a0addd0fc153c3039c.mailgun.org',
-            #             '8023f9a76db2402179a28cb1bbd8a16b-4e034d9e-3058ef0c')
-            flash('you have successfully subscribed to our newsletter', category='success')
-            # subject='NEWSLETTER SUBSCRIPTION'
-            # sender= admin_sender
-            # recipient = email
-            # template = 'emails/newsletter'
-            # send_email(subject,sender, recipient, template, user=email)
+
+        # notify customer via email 
+            display_name = 'galaxy cleaning'
+            send= os.getenv('MY_EMAIL')
+            sender = f'{display_name} <{send}>'
+            recipient = email
+            subject='NEWSLETTER SUBSCRIPTION'
+            template = 'emails/newsletter'
+            
+            send_email(subject,sender, recipient, template, email=email)
+            flash('you have successfully subscribed to our newsletter', category='success')   
     return redirect(request.referrer)
+
+
+@main.route('/unsubscribe/<email>')
+def unsubscribe(email):
+    mail = Subscribers.query.filter_by(email=email).first()
+    if not mail:
+        flash('you are no longer a subscriber', category='info')
+    else:
+        db.session.delete(mail)
+        db.session.commit()
+        flash('you have sucessfully unsubscribed from our newsletter', category='success')
+    return redirect(url_for('main.index'))
+ 
 
 # list all services in a page
 @main.route('/services')
@@ -305,8 +362,25 @@ def message_us():
         phone = request.form.get('phone')
         subject = request.form.get('subject')
         message = request.form.get('message')
-        flash('thank you for messaging us, we will get back to you shortly', category='success')
-        # send email algo goes here
+
+        mail_subject = subject
+        sender = os.getenv('MY_EMAIL')
+        recipient = email
+        user_template = 'emails/message-us'
+        comment = message
+
+        # Call the function to send the message with reply_to set to the user's email
+        send_message_us(
+            mail_subject,
+            sender,
+            recipient,
+            user_template,
+            msg=comment,
+            customer_name=name,
+            customer_phone=phone
+        )
+
+        flash('Thank you for messaging us, we will get back to you shortly', category='success')
     return redirect(request.referrer)
 
 
@@ -334,9 +408,70 @@ def terms_of_service():
 @main.route('/request-estimate', methods=['GET', 'POST'])
 def request_estimate():
     form = QuotesForm()
-    if form.validate_on_submit():
-        flash('success, we shall get back to you shortly', category='success')
-        return redirect(url_for('main.index'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            form_data = {
+                'name':form.name.data,
+                'email' : form.email.data,
+                'phone_num' : form.phone.data,
+                'address' : form.address.data,
+                'comments' : form.comments.data,
+                'selected_service' : form.cleaning_service,
+                'date' : form.date.data,
+                'time' : form.time.data,
+                'zipcode' : form.zip_code.data,
+                'pet_count': form.pet_count.data,
+                'budget' : form.budget.data,
+                'approx_sf' : form.approx_sf.data
+            }
+            # send email to owner
+            subject = 'Quotes Confirmation'
+            recipient = form_data['email']
+            owner = os.getenv('MY_EMAIL')
+            send_as = 'Galaxy Cleaning'
+            sendr = os.getenv('MY_EMAIL')
+            sender =f'{send_as} <{sendr}>'
+            owner_template = 'emails/notify-owner'
+            customer_template = 'emails/customer-quote-confirmation'
+            #send notification email to owner
+            try:
+                send_email(
+                    subject,
+                    sender, 
+                    owner, 
+                    owner_template, 
+                    email=form_data['email'], 
+                    customer_name=form_data['name'],  
+                    phone_number=form_data['phone_num'], 
+                    comments=form_data['comments'],
+                    address=form_data['address'],
+                    chosen_service=form_data['selected_service'],
+                    date=form_data['date'],
+                    time=form_data['time'],
+                    zipcode=form_data['zipcode'],
+                    pets=form_data['pet_count'],
+                    budget=form_data['budget'],
+                    property_size=form_data['approx_sf']
+                )
+            except Exception as err:
+                print(f'{err}: quotes could not be sent at the moment')
+            # send notification email to user
+            try:
+                send_email(
+                    subject,
+                    sender, 
+                    recipient, 
+                    customer_template,
+                    customer_name=form_data['name']
+                )
+            except Exception as e:
+                print(e)
+                
+            # notify user of success
+            flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
+            return redirect(url_for('main.index'))
+        else:
+            flash('Please correct the errors below and try again.', category='error')
     return render_template('calculate-form.html', form=form)
 
 

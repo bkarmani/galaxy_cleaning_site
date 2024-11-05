@@ -67,42 +67,127 @@ move-in/move-out cleaning, disinfection services,sanitization services
                     <form class="contact-form-box" method="POST" action="">
                         <div class="row gutters-10">
                             {{ form.hidden_tag() }}
+                    
                             <div class="col-12 form-group">
                                 {{ form.cleaning_service(class="select2") }}
+                                {% if form.cleaning_service.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.cleaning_service.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group">
-                                {{ form.property_type(class="select2") }}
+                                {{ form.approx_sf(class="form-control", placeholder='property(SF/num)') }}
+                                {% if form.approx_sf.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.approx_sf.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group">
-                                {{ form.approx_sf(class="select2") }}
+                                {{ form.budget(class="form-control") }}
+                                {% if form.budget.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.budget.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group">
-                                 {{ form.budget(class="form-control") }}
+                                {{ form.zip_code(class="form-control", placeholder="Postcode") }}
+                                {% if form.zip_code.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.zip_code.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+
                             <div class="col-md-6 col-12 form-group">
-                                 {{ form.zip_code(class="form-control", placeholder="ZIP Code") }}
-                            </div>
+                                {{ form.pet_count(class="form-control", placeholder='no of pets') }}
+                                {% if form.pet_count.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.pet_count.errors[0] }}
+                                    </div>
+                                {% endif %}
+                            </div>                                                                                                       
+                    
                             <div class="col-md-6 col-12 form-group datetime-picker">
                                 {{ form.date(class="form-control", placeholder="dd/mm/yy") }}
+                                {% if form.date.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.date.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group datetime-picker">
                                 {{ form.time(class="form-control", placeholder="Time") }}
+                                {% if form.time.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.time.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group">
                                 {{ form.name(class="form-control", placeholder="Name") }}
+                                {% if form.name.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.name.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-md-6 col-12 form-group">
                                 {{ form.phone(class="form-control", placeholder="Phone") }}
+                                {% if form.phone.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.phone.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-12 form-group">
                                 {{ form.email(class="form-control", placeholder="E-mail Address") }}
+                                {% if form.email.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.email.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-12 form-group mg-b-20">
                                 {{ form.address(class="form-control", placeholder="Address") }}
+                                {% if form.address.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.address.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-12 form-group mg-b-20">
                                 {{ form.comments(class="form-control", placeholder="Comments") }}
+                                {% if form.comments.errors %}
+                                    <div class="error-message">
+                                        <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                                        {{ form.comments.errors[0] }}
+                                    </div>
+                                {% endif %}
                             </div>
+                    
                             <div class="col-12 form-group">
                                 {{ form.submit(class="fw-btn-fill bg-accent text-primarytext") }}
                             </div>

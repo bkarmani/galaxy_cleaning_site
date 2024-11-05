@@ -33,4 +33,15 @@ def send_email(subject, sender, recipient, template,  **kwargs):
     # msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
     email.send(msg)
+
+def send_message_us(subject, sender, recipient, template, **kwargs):
+    # Create the email message with a reply-to header set to the user's email
+    msg = Message(
+        subject,
+        sender=("User via Galaxy Cleaning", sender),
+        recipients=[sender],
+        reply_to=recipient  # This sets the Reply-To header to the user's email
+    )
+    msg.html = render_template(template + '.html', **kwargs)
+    email.send(msg)
     

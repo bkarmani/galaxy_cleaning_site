@@ -220,6 +220,35 @@ h6 {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+.error-message {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  border: 1px solid #f5c6cb; /* Border color similar to background */
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 0.9em;
+  position: relative; /* To position close button inside */
+}
+
+.error-message .close-btn {
+  background: none; /* Remove default button background */
+  border: none; /* Remove default border */
+  color: #721c24; /* Match text color */
+  font-weight: bold; /* Make it stand out */
+  font-size: 1.1em; /* Slightly bigger */
+  position: absolute; /* Position it inside the error */
+  top: 4px; /* Adjust based on your padding */
+  right: 6px; /* Adjust based on your padding */
+  cursor: pointer;
+}
+
+.error-message .close-btn:hover {
+  color: #a94442; /* Slightly darker on hover */
+}
+
+
 /*------------------- 2.2 Grid -------------------*/
 @media only screen and (min-width: 1200px) {
   .container {
