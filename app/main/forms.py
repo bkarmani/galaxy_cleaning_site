@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, TimeField, EmailField, SelectField, TextAreaField, DecimalField
-from wtforms.validators import DataRequired, Email, Length, Regexp, NumberRange
+from wtforms.validators import ValidationError, DataRequired, Email, Length, Regexp, NumberRange, InputRequired
 
 
 # class NewsLetterForm(FlaskForm):
@@ -44,6 +44,11 @@ from wtforms.validators import DataRequired, Email, Length, Regexp, NumberRange
 
 
 # # class RequestEstimate(FlaskForm):
+
+def integer_check(form, field):
+    # Custom validator to ensure the input is an integer
+    if field.data % 1 != 0:
+        raise ValidationError("Please enter a whole number.")
 
 class QuotesForm(FlaskForm):
     # Select field for cleaning service type
@@ -92,8 +97,9 @@ class QuotesForm(FlaskForm):
     pet_count = DecimalField(
         'no of pets', 
         validators=[
-            DataRequired(),
-            NumberRange(min=0, message="Please enter a positive number.")
+            InputRequired(),
+            NumberRange(min=0, message="Please enter a positive number or zero if you have no pets"),
+            integer_check
         ]
     )
 
