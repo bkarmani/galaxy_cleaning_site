@@ -16,8 +16,8 @@ class Config:
 
     MAIL_SERVER = 'smtp.zoho.com'
     MAIL_PORT = 465
-    MAIL_USERNAME = 'benjaminozor@gmail.com'
-    MAIL_PASSWORD = 'Maxkalba200_##'
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     MAIL_DEFAULT_SENDER = ('Galaxy Cleaning', os.getenv('MY_EMAIL'))

@@ -473,6 +473,7 @@ def request_estimate():
             flash(f"Thank you! {form_data['name']}, we'll get back to you shortly", category='success')
             return redirect(url_for('main.index'))
         else:
+            print(form.errors)
             flash('Please correct the errors below and try again.', category='error')
     return render_template('calculate-form.html', form=form)
 

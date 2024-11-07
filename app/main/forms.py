@@ -70,6 +70,7 @@ class QuotesForm(FlaskForm):
             NumberRange(min=1, message="Please enter a positive number.")
         ]
     )
+            
 
     # Text field for budget
     budget = DecimalField(
@@ -97,9 +98,9 @@ class QuotesForm(FlaskForm):
     pet_count = DecimalField(
         'no of pets', 
         validators=[
-            InputRequired(),
+            DataRequired(),
             NumberRange(min=0, message="Please enter a positive number or zero if you have no pets"),
-            integer_check
+            
         ]
     )
 
